@@ -8,10 +8,10 @@ const SafetyTip = (props) => {
 
   return(
     <div className="component">
-    <p className ="title">
+
       <h2> {props.safetyTip.title} </h2>
       <p> {props.safetyTip.description} </p>
-      </p>
+    
       </div>
   )
 }

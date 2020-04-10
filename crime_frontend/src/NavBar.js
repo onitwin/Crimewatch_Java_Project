@@ -1,23 +1,26 @@
 import React from 'react';
+import { Navbar, Nav } from 'react-bootstrap';
+
 
 const NavBar = (props) => {
   return (
-    <header>
-     <ul>
-       <li className = "navLink">
-         <a href="/crimes"> Crime Table </a> </li>
-          <li className = "navLink">
-         <a href="/home"> Home </a>
-         </li>
-         <li className = "navLink">
-          <a href="/news"> News </a>
-           </li>
-           <li className = "navLink">
-            <a href="/safetyTips"> Safety Tips </a>
-             </li>
+    <Navbar bg="dark" variant="dark" >
+    <Navbar.Brand>
+     <img
+       src='/images.png'
+       width="80px"
+       height="80px"
+       className="d-inline-block align-top"
+       alt=" "></img>
+     </Navbar.Brand>
+   <Nav >
+     <Nav.Link className="navbar-right" href="/home">Home</Nav.Link>
+     <Nav.Link className="navbar-right" href="/crimes">Crime Table</Nav.Link>
+        <Nav.Link className="navbar-right" href="/news">News</Nav.Link>
+     <Nav.Link  className="navbar-right" href="/safetyTips">Safety Tips</Nav.Link>
+   </Nav>
+ </Navbar>
 
-     </ul>
-    </header>
   )
 }
 

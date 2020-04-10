@@ -16,12 +16,17 @@ public class SafetyTip {
     @Column(name = "description")
     private String description;
 
+    @Column(name = "type")
+    private Type type;
+
+
     @Column(name = "imageURL")
     private String imageURL;
 
-    public SafetyTip(String title, String description, String imageURL){
+    public SafetyTip(String title, String description, Type type, String imageURL){
         this.title = title;
         this.description = description;
+        this.type = type;
         this.imageURL = imageURL;
     }
 
@@ -51,6 +56,14 @@ public class SafetyTip {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
     }
 
     public String getImageURL() {

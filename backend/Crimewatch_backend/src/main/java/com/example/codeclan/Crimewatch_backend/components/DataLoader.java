@@ -2,6 +2,7 @@ package com.example.codeclan.Crimewatch_backend.components;
 
 import com.example.codeclan.Crimewatch_backend.models.Crime;
 import com.example.codeclan.Crimewatch_backend.models.SafetyTip;
+import com.example.codeclan.Crimewatch_backend.models.Type;
 import com.example.codeclan.Crimewatch_backend.repositories.CrimeRepository;
 import com.example.codeclan.Crimewatch_backend.repositories.SafetyTipRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -95,29 +96,29 @@ public class DataLoader implements ApplicationRunner {
         Crime westLothian = new Crime("West Lothian", 229, 387, 271, 511, 111);
         crimeRepository.save(westLothian);
 
-        SafetyTip tip1 = new SafetyTip("Be prepared", "Plan your route in advance. Carry a charged mobile phone and some cash, and tell someone where you’re going.", "");
+        SafetyTip tip1 = new SafetyTip("Be prepared", "Plan your route in advance. Carry a charged mobile phone and some cash, and tell someone where you’re going.", Type.VIOLENCE, "");
         safetyTipRepository.save(tip1);
 
-        SafetyTip tip2 = new SafetyTip("Be assertive", "From the moment you step out onto the street in the morning, look assertive and act and walk with confidence. This will always make you appear in control and much less vulnerable.", "");
+        SafetyTip tip2 = new SafetyTip("Be assertive", "From the moment you step out onto the street in the morning, look assertive and act and walk with confidence. This will always make you appear in control and much less vulnerable.",Type.VIOLENCE, "");
         safetyTipRepository.save(tip2);
 
-        SafetyTip tip3 = new SafetyTip("Be aware", "Using a mobile phone, whether making a call or texting, wearing a hood or listening to loud music, all affect your awareness of your surroundings.", "");
+        SafetyTip tip3 = new SafetyTip("Be aware", "Using a mobile phone, whether making a call or texting, wearing a hood or listening to loud music, all affect your awareness of your surroundings.",Type.VIOLENCE, "");
         safetyTipRepository.save(tip3);
 
-        SafetyTip tip4 = new SafetyTip("Hide it", "Keep your valuables including your mobile phone, other devices and jewellery, hidden. Remember, out of sight, out of mind.", "");
+        SafetyTip tip4 = new SafetyTip("Hide it", "Keep your valuables including your mobile phone, other devices and jewellery, hidden. Remember, out of sight, out of mind.",Type.VIOLENCE, "");
         safetyTipRepository.save(tip4);
 
-        SafetyTip tip5 = new SafetyTip("Go against the flow", "When walking on the pavement, always face oncoming traffic, as it will make it far more difficult for thieves on two wheelers to ride up from behind and snatch your property. But still also be aware of anyone approaching from ahead of you.", "");
+        SafetyTip tip5 = new SafetyTip("Go against the flow", "When walking on the pavement, always face oncoming traffic, as it will make it far more difficult for thieves on two wheelers to ride up from behind and snatch your property. But still also be aware of anyone approaching from ahead of you.",Type.VIOLENCE, "");
         safetyTipRepository.save(tip5);
 
-        SafetyTip tip6 = new SafetyTip("Trust your instincts", "Try to avoid walking alone at night in places such as parks and side streets or any unfamiliar environment. If you do have to walk, stick to busy places where is a lot of activity CCTV and good lighting.", "");
+        SafetyTip tip6 = new SafetyTip("Trust your instincts", "Try to avoid walking alone at night in places such as parks and side streets or any unfamiliar environment. If you do have to walk, stick to busy places where is a lot of activity CCTV and good lighting.",Type.VIOLENCE, "");
         safetyTipRepository.save(tip6);
-        SafetyTip tip7 = new SafetyTip("Make a plan", "And stick to it. First off, discuss with friends what to do if something were to go wrong on your night out together, eg if one of you has too much to drink or you were to get separated. Agree on a backup plan and look out for one another.", "");
+        SafetyTip tip7 = new SafetyTip("Make a plan", "And stick to it. First off, discuss with friends what to do if something were to go wrong on your night out together, eg if one of you has too much to drink or you were to get separated. Agree on a backup plan and look out for one another.",Type.VIOLENCE, "");
         safetyTipRepository.save(tip7);
-        SafetyTip tip8 = new SafetyTip("Be vigilant", "Alcohol and drugs will reduce reaction times and inhibitions, which makes it harder to assess risks and decide how to deal with them. So keep an eye on how much you drink and never let your glass or bottle out of your sight.", "");
+        SafetyTip tip8 = new SafetyTip("Be vigilant", "Alcohol and drugs will reduce reaction times and inhibitions, which makes it harder to assess risks and decide how to deal with them. So keep an eye on how much you drink and never let your glass or bottle out of your sight.",Type.VIOLENCE, "");
         safetyTipRepository.save(tip8);
 
-        SafetyTip tip9 = new SafetyTip("Safety in numbers", "Try to travel with people you know and, where possible, stick to routes and forms of transport that others are using and avoid shortcuts in lonely places.", "");
+        SafetyTip tip9 = new SafetyTip("Safety in numbers", "Try to travel with people you know and, where possible, stick to routes and forms of transport that others are using and avoid shortcuts in lonely places.",Type.VIOLENCE, "");
         safetyTipRepository.save(tip9);
 
 
