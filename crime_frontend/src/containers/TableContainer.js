@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import CrimeTable from '../components/crimedata/CrimeTable'
+import CrimeTable from '../components/table/CrimeTable'
 import Request from '../helpers/request'
 
 

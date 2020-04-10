@@ -4,6 +4,7 @@ import NavBar from '../NavBar.js';
 import CrimeContainer from './CrimeContainer'
 import NewsContainer from './NewsContainer'
 import TableContainer from './TableContainer'
+import SafetyTipsContainer from './SafetyTipsContainer'
 
 
 const MainContainer = () => {
@@ -16,6 +17,7 @@ const MainContainer = () => {
     <Route path="/home" component={CrimeContainer}/>
        <Route path="/crimes" component={TableContainer}/>
        <Route path="/news" component={NewsContainer}/>
+       <Route path="/safetyTips" component={SafetyTipsContainer}/>
     </Switch>
     </Fragment>
     </Router>

@@ -10,13 +10,14 @@ import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 650,
+    minWidth: 400,
+    maxWidth: 700,
+    padding: '30px',
   },
 });
 
 
-
-export default function CrimeTable(props) {
+export default function SimpleTable(props) {
   const classes = useStyles();
   const crimes = props.crimes
 
@@ -50,40 +51,5 @@ export default function CrimeTable(props) {
       </Table>
     </TableContainer>
   );
-// .map((crime) => {
-//     return (
-//       <tr>
-//       <td> {crime.featureName} </td>
-//       <td> {crime.numberOfFrauds} </td>
-//       <td> {crime.numberOfHouseBreakIns} </td>
-//        <td> {crime.numberOfMotorThefts} </td>
-//        <td> {crime.numberOfNonSexualCrimesOfViolence} </td>
-//        <td> {crime.numberOfSexualCrimes} </td>
-//        </tr>
-//     )
-  // })
 
-
-  // return (
-  //   <table>
-  //   <thead>
-  //    <tr>
-  //    <th> featureName </th>
-  //       <th> NumberOfFrauds </th>
-  //       <th> NumberOfHouseBreakIns </th>
-  //       <th> NumberOfMotorThefts </th>
-  //    <th> NumberOfNonSexualCrimesOfViolence </th>
-  //    <th> NumberOfSexualCrimes </th>
-  //
-  //
-  //    </tr>
-  //    </thead>
-  //    <tbody>
-  //      {crimes}
-  //    </tbody>
-  //    </table>
-  //
-  // )
 }
-//
-// export default CrimeTable;

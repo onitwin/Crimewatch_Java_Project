@@ -12,6 +12,9 @@ const NavBar = (props) => {
          <li className = "navLink">
           <a href="/news"> News </a>
            </li>
+           <li className = "navLink">
+            <a href="/safetyTips"> Safety Tips </a>
+             </li>
 
      </ul>
     </header>
