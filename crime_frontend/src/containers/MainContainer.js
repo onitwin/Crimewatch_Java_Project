@@ -15,7 +15,9 @@ const MainContainer = () => {
        <Route path="/crimes" component={CrimeContainer}/>
        <Route path="/news" component={NewsContainer}/>
     </Switch>
-    </Fragement>
+    </Fragment>
     </Router>
   )
 }
+
+export default MainContainer;

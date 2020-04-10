@@ -30,3 +30,5 @@ class NewsContainer extends Component{
     )
   }
 }
+
+export default NewsContainer;
