@@ -5,8 +5,14 @@ const NavBar = (props) => {
     <header>
      <ul>
        <li className = "navLink">
-         <a href="/crimes"> Crime Table </a>
+         <a href="/crimes"> Crime Table </a> </li>
+          <li className = "navLink">
+         <a href="/home"> Home </a>
          </li>
+         <li className = "navLink">
+          <a href="/news"> News </a>
+           </li>
+
      </ul>
     </header>
   )

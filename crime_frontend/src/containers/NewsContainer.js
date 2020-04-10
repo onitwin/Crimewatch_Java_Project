@@ -1,6 +1,6 @@
-import React, {Component, Fragment} from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react';
-import NewsList from '../components/news/NewsList';
+import React, {Component} from 'react';
+// import {BrowserRouter as Router, Route, Switch} from 'react';
+// import NewsList from '../components/news/NewsList';
 
 class NewsContainer extends Component{
   constructor(props){
