@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 // import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 // import NavBar from '../NavBar';
+import MapComponent from "../components/map/MapComponent"
 
 class CrimeContainer extends Component{
   constructor(props){
@@ -85,13 +86,18 @@ render(){
   return(
 <div>
  <p> Crime Front Page </p>
+ <p> Please enter a postcode and date of an area in England and Wales you'd like to search </p>
+ <form  onSubmit={this.handleSubmit}>
+   <input type="text" placeholder="Postcode"
+   onChange={this.handlePostcodeChange} value={this.state.postcode}/>
+ <input type="month" placeholder="date"   onChange={this.handleDateChange} value={this.state.date} min='2017-03' max='2020-02'/>
+   <button type="submit"> Submit </button>
+ </form>
 
-<form  onSubmit={this.handleSubmit}>
-  <input type="text" placeholder="Postcode"
-  onChange={this.handlePostcodeChange} value={this.state.postcode}/>
-<input type="month" placeholder="date"   onChange={this.handleDateChange} value={this.state.date} min='2017-03' max='2020-02'/>
-  <button type="submit"> Submit </button>
-</form>
+
+ <MapComponent crimes={this.state.crimes}/>
+
+
 </div>
   )
 }
