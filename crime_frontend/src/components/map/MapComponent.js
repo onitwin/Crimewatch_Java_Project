@@ -8,7 +8,7 @@ const MapComponent =(props)=>{
   const position = [53.483959,-2.244644]
   return (
     <div className='mapDiv'>
-    <p>Map SHOULD show up below</p>
+    <p>Hello from the MapComponent!!!!</p>
     <Map center={position} zoom={10}>
     <TileLayer
     attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
