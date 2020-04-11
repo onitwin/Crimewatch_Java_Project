@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import MapContainer from './MapContainer';
 // import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 // import NavBar from '../NavBar';
@@ -92,6 +93,7 @@ render(){
 <input type="month" placeholder="date"   onChange={this.handleDateChange} value={this.state.date} min='2017-03' max='2020-02'/>
   <button type="submit"> Submit </button>
 </form>
+<MapContainer/>
 </div>
   )
 }
