@@ -4,20 +4,21 @@ import { Navbar, Nav } from 'react-bootstrap';
 
 const NavBar = (props) => {
   return (
-    <Navbar bg="dark" variant="dark" >
+    <Navbar bg="dark" variant="dark">
     <Navbar.Brand>
      <img
        src='/images.png'
-       width="80px"
-       height="80px"
-       className="d-inline-block align-top"
-       alt=" "></img>
+       width="30"
+       height="30"
+      className="d-inline-block align-top"
+       alt=" "></img> {' '}
+       Crime Aware
      </Navbar.Brand>
-   <Nav >
-     <Nav.Link className="navbar-right" href="/home">Home</Nav.Link>
-     <Nav.Link className="navbar-right" href="/crimes">Crime Table</Nav.Link>
-        <Nav.Link className="navbar-right" href="/news">News</Nav.Link>
-     <Nav.Link  className="navbar-right" href="/safetyTips">Safety Tips</Nav.Link>
+   <Nav className =  "navbar-nav mx-auto ">
+     <Nav.Link href="/home">Home</Nav.Link>
+     <Nav.Link href="/crimes">Crime Table</Nav.Link>
+        <Nav.Link href="/news">News</Nav.Link>
+     <Nav.Link href="/safetyTips">Safety Tips</Nav.Link>
    </Nav>
  </Navbar>
 
