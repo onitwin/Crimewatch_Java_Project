@@ -1,7 +1,9 @@
 import React from 'react';
-import News from './News.js';
+// import News from './News.js';
 
 const NewsList = (props) => {
+  debugger;
+   console.log(props.news);
   if(props.news.length === 0){
     return (<p>Loading.....</p>)
   }

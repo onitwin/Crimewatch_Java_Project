@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import Request from '../helpers/request';
+// import Request from '../helpers/request';
 import {BrowserRouter as Router, Route, Switch} from 'react';
 import NewsList from '../components/news/NewsList';
 
@@ -9,26 +9,27 @@ class NewsContainer extends Component{
   constructor(props){
     super(props);
     this.state ={
-      articles: []
+      storyDetails: []
     }
   }
-
-
 
   componentDidMount(){
     const storyLinks = [
       {name: "Latest", url: 'http://newsapi.org/v2/top-headlines?sources=google-news&apiKey=2218c76040f6429a899670d4e4628c6c'},
     ];
 
-    const request = new Request();
     debugger;
-    request.get(storyLinks[0].url)
-    .then((data) => {
-      this.setState({news: data})
-      console.log(`this.state.news = ${this.state.news}`);
-      console.log(`data = ${data}`);
-      console.log(`this.state.data = ${this.state.data}`);
-    })
+
+
+    fetch(storyLinks[0].url)
+      .then(res => res.json())
+      .then(stories => {
+        this.setState({ storyDetails: stories.articles})
+      })
+      .catch(err => console.error);
+
+
+
 
   }
 
@@ -43,19 +44,20 @@ class NewsContainer extends Component{
   // }
 
   render(){
-    console.log(this.state.news);
     if(!this.state.news){
       return null
     }
+
    return(
       <Router>
-      <Fragment>
-      <Switch>
-        <Route render={(props) =>{
-          return <NewsList news={this.state.news}/>
-      }} />
-        </Switch>
-      </Fragment>
+        <Fragment>
+          <Switch>
+            <Route render={(props) =>{
+              return <NewsList news={this.state.storyDetails}/>
+            }} />
+
+          </Switch>
+        </Fragment>
       </Router>
     )
   }

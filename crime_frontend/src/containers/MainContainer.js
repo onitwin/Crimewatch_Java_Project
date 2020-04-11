@@ -11,7 +11,6 @@ import MapContainer from './MapContainer'
 const MainContainer = () => {
 
 
-  const apiKey = "2218c76040f6429a899670d4e4628c6c"
   const storyLinks = [
     {name: "Latest", url: `http://newsapi.org/v2/top-headlines?sources=google-news&apiKey=2218c76040f6429a899670d4e4628c6c`},
   ];
