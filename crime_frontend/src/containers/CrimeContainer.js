@@ -3,6 +3,7 @@ import MapContainer from './MapContainer';
 // import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 // import NavBar from '../NavBar';
+import MapComponent from "../components/map/MapComponent"
 
 class CrimeContainer extends Component{
   constructor(props){
@@ -86,7 +87,7 @@ render(){
   return(
 <div>
  <p> Crime Front Page </p>
-
+ <MapComponent crimes={this.state.crimes}/>
 <form  onSubmit={this.handleSubmit}>
   <input type="text" placeholder="Postcode"
   onChange={this.handlePostcodeChange} value={this.state.postcode}/>

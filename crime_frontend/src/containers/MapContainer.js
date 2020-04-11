@@ -17,7 +17,7 @@ class MapContainer extends Component{
   render(){
     const position = [this.state.lat, this.state.lng]
     return (
-      <div>
+      <div className='mapDiv'>
       <p>Map SHOULD show up below</p>
       <Map center={position} zoom={this.state.zoom}>
       <TileLayer
