@@ -30,10 +30,10 @@ async  fetchPostcodeData(postcode){
   this.fetchCrimeData(this.state.postcode_data)
 }
 
-fetchCrimeData(postcode){
+ fetchCrimeData(postcode){
   const url = ("https://data.police.uk/api/crimes-at-location?date="+this.state.date+"&lat="+postcode.latitude +"&lng="+postcode.longitude)
-   fetch(url).then(data => data.json()).then((data) =>
-    console.log(data))
+   fetch(url).then(data => data.json()).then((data) =>{
+   this.setState({crimes: data})}).catch(alert('....loading'))
 
 }
 
@@ -70,9 +70,13 @@ formatPostcode(p) {
 
 handleSubmit(event){
   event.preventDefault();
+  if(this.isValidPostcode(this.state.postcode)){
   this.setState({postcode:this.formatPostcode(this.state.postcode)})
   this.fetchPostcodeData(this.state.postcode)
   this.setState({date:this.state.date})
+}else{
+  return  alert('An invalid postcode was submited')
+}
 
 }
 
@@ -85,7 +89,7 @@ render(){
 <form  onSubmit={this.handleSubmit}>
   <input type="text" placeholder="Postcode"
   onChange={this.handlePostcodeChange} value={this.state.postcode}/>
-<input type="month" placeholder="date"   onChange={this.handleDateChange} value={this.state.date}/>
+<input type="month" placeholder="date"   onChange={this.handleDateChange} value={this.state.date} min='2017-03' max='2020-02'/>
   <button type="submit"> Submit </button>
 </form>
 </div>
