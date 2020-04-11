@@ -21,9 +21,10 @@ class CrimeContainer extends Component{
 
 async  fetchPostcodeData(postcode){
   const url = "http://api.postcodes.io/postcodes/"+postcode
-   await fetch(url).then((data) => {
-    this.setState({postcode_data: data})
+   await fetch(url).then(data => data.json()).then((data) => {
+    this.setState({postcode_data: data.result})
   })
+
 
 }
 
