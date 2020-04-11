@@ -5,7 +5,7 @@ import CrimeContainer from './CrimeContainer'
 import NewsContainer from './NewsContainer'
 import TableContainer from './TableContainer'
 import SafetyTipsContainer from './SafetyTipsContainer'
-import MapContainer from './MapContainer'
+
 
 
 const MainContainer = () => {
