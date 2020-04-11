@@ -1,7 +1,8 @@
 class Request {
 
    get(url){
-     return fetch(url).then((res) => res.json())
+     return fetch(url)
+     .then((res) => res.json())
    }
 
    post(url, payload){
