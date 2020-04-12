@@ -5,7 +5,7 @@ const Story = (props) =>{
 
 
   return (
-     <div>
+     <Fragment>
 
        <h4>
       Title: {props.story.title}
@@ -16,7 +16,7 @@ const Story = (props) =>{
  <p>
 Author:  {props.story.author}
  </p>
-   </div>
+   </Fragment>
 )
 }
 

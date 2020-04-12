@@ -1,15 +1,14 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import Story from './Story';
 
 const StoryList = (props) => {
 
    console.log(props);
-  // if(props.stories.length === 0){
-  //   return (<p>Loading.....</p>)
-  // }
+  if(props.stories.length === 0){
+    return (<p>Loading.....</p>)
+  }
 
   const stories = props.stories.map( story =>{
-    let num = 0;
     return (
      <li key={story.title} className = "component-item">
 
@@ -22,9 +21,12 @@ const StoryList = (props) => {
 )
 
   return (
+    <Fragment>
+    <h1> Crime News </h1>
 		<ul className="component-list">
 			{stories}
 		</ul>
+    </Fragment>
 )
 
 }
