@@ -1,32 +1,33 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import Story from './Story';
+import GridListTile from '@material-ui/core/GridListTile';
+import GridList from '@material-ui/core/GridList';
 
 const StoryList = (props) => {
 
-   console.log(props);
+
   if(props.stories.length === 0){
     return (<p>Loading.....</p>)
   }
 
-  const stories = props.stories.map( story =>{
-    return (
-     <li key={story.title} className = "component-item">
+  const stories =  props.stories.map((story) => (
+      <GridListTile key={story.title} cols={story.cols || 1}>
+        <Story  story={story}/>
+      </GridListTile>
 
-        <Story story={story} />
+        ))
 
-      </li>
 
-    )
-  }
-)
+
 
   return (
-    <Fragment>
-    <h1> Crime News </h1>
-		<ul className="component-list">
-			{stories}
-		</ul>
-    </Fragment>
+    <div>
+    <p>  </p>
+    <h2> Lastest Crime News </h2>
+    <GridList justify="center" spacing={50}  cellHeight='auto'  cols={3}>
+       {stories}
+    </GridList>
+    </div>
 )
 
 }

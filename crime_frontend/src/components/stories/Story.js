@@ -7,8 +7,10 @@ const Story = (props) =>{
   return (
      <Fragment>
 
+
        <h4>
-      Title: {props.story.title}
+
+       {props.story.title}
     </h4>
     <p>
    Description:  {props.story.description}
