@@ -1,4 +1,6 @@
-import React,{Component} from 'react';
+
+import React, {Fragment} from 'react';
+
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import MapMarker from "./MapMarker";
 
@@ -8,7 +10,7 @@ const MapComponent =(props)=>{
 
   const position = [props.postcodeData.latitude,props.postcodeData.longitude]
   return (
-    <div className='mapDiv'>
+    <Fragment className='mapDiv'>
 
     <Map center={position} zoom={16}>
     <TileLayer
@@ -34,7 +36,7 @@ const MapComponent =(props)=>{
 
 
     </Map>
-    </div>
+    </Fragment>
   )
 
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import SafetyTip from './SafetyTip';
 
 const SafetyTipList = (props) => {
@@ -17,12 +17,12 @@ const SafetyTipList = (props) => {
   })
 
   return(
-    <div>
-    <h1> Tips To Say Safe </h1>
+    <Fragment>
+    <h1 className="header"> Tips To Say Safe </h1>
     <ul className="component-list">
      {safetyTips}
      </ul>
-   </div>
+   </Fragment>
   )
 }
 
