@@ -10,7 +10,7 @@ class CrimeContainer extends Component{
     this.state = {
       crimes: "",
       postcode: "",
-      postcode_data: [],
+      postcode_data:{longitude:-4.251433,latitude:55.860916},
       date: ""
     }
 

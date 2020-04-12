@@ -5,7 +5,7 @@ import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 
 const MapComponent =(props)=>{
 
-  const position = [53.483959,-2.244644]
+  const position = [props.postcodeData.latitude,props.postcodeData.longitude]
   return (
     <div className='mapDiv'>
 
