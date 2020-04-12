@@ -1,4 +1,4 @@
-import React,{Fragment,Component} from 'react';
+import React,{Component} from 'react';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 
 
@@ -9,14 +9,14 @@ const MapComponent =(props)=>{
   return (
     <div className='mapDiv'>
 
-    <Map center={position} zoom={10}>
+    <Map center={position} zoom={16}>
     <TileLayer
     attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     />
     <Marker position={position}>
     <Popup>
-    This is holding text <br /> Should be able to update
+    This is component <br /> This is not container
     <br/>with crime data
     </Popup>
     </Marker>

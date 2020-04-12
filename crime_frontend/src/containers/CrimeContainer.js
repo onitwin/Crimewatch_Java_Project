@@ -86,7 +86,7 @@ render(){
   return(
 <div>
  <p> Crime Front Page </p>
- <p> Please enter a postcode and date of an area in England and Wales you'd like to search </p>
+ <p> Please enter a postcode and date of an area in <strong>England</strong> and<strong> Wales</strong> you'd like to search </p>
  <form  onSubmit={this.handleSubmit}>
    <input type="text" placeholder="Postcode"
    onChange={this.handlePostcodeChange} value={this.state.postcode}/>
@@ -95,7 +95,7 @@ render(){
  </form>
 
 
- <MapComponent crimes={this.state.crimes}/>
+ <MapComponent crimes={this.state.crimes} postcodeData={this.state.postcode_data}/>
 
 
 </div>
