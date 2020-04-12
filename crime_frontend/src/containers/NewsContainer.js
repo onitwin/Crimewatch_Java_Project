@@ -13,13 +13,14 @@ class NewsContainer extends Component{
   }
 
   componentDidMount(){
-    const url = 'http://newsapi.org/v2/top-headlines?sources=google-news&apiKey=2218c76040f6429a899670d4e4628c6c';
-    fetch(url)
-      .then(res => res.json())
-      .then(stories => {
-       this.setState({ stories: stories.articles})})
-      // .catch(err => console.error);
 
+     const url = 'https://newsapi.org/v2/everything?q=crime&apiKey=2218c76040f6429a899670d4e4628c6c'
+     fetch(url)
+        .then(res => res.json())
+        .then(stories => {
+        this.setState({ stories: stories.articles})
+        })
+        .catch(err => console.error);
 
   }
 
