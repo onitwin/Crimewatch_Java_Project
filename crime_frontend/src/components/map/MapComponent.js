@@ -1,8 +1,6 @@
-<<<<<<< HEAD
+
 import React, {Fragment} from 'react';
-=======
-import React,{Component} from 'react';
->>>>>>> 2aaee7a01c5da11a08cfa493b8b3b9007b15dda1
+
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 
 

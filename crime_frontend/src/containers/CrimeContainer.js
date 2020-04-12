@@ -1,7 +1,4 @@
 import React, {Component} from 'react'
-// import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-
-// import NavBar from '../NavBar';
 import MapComponent from "../components/map/MapComponent"
 
 class CrimeContainer extends Component{
