@@ -19,8 +19,3 @@ code {
   height: 50vh;
   border:10px double black;
 }
-
-#MapContainer{
-  align-items: center;
-  text-align: center;
-}
