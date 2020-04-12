@@ -8,8 +8,37 @@ class TableContainer extends Component{
   constructor(props){
     super(props);
     this.state = {
-      crimes: []
+      crimes: [],
+      rOUkCrimes: []
     }
+  }
+
+  fetchCrimeData(){
+    let lat = '53.794042';
+    let lng = '-1.586510';
+    let date = '2020-01'
+    const url = `https://data.police.uk/api/crimes-street/all-crimes?lat=${lat}&lng=${lng}&date=${date}`
+    // fetch(url)
+    //    .then(res => res.json())
+    //    .then(stories => {
+    //    this.setState({ stories: stories.articles})
+    //    })
+    //    .catch(err => console.error);
+    debugger;
+       fetch(url)
+      .then(res => res.json())
+      .then((res) =>{
+         //this.setState({rOUkCrimes:res})
+         return {res}
+      })
+        .catch(alert('....loading'))
+
+      //  fetchCrimeData(postcode){
+      //   const url = ("https://data.police.uk/api/crimes-at-location?date="+this.state.date+"&lat="+postcode.latitude +"&lng="+postcode.longitude)
+      //    fetch(url).then(data => data.json()).then((data) =>{
+      //    this.setState({crimes: data})}).catch(alert('....loading'))
+      //
+      // }
   }
 
   componentDidMount(){
@@ -17,6 +46,11 @@ class TableContainer extends Component{
   request.get('api/crimes').then((data) => {
     this.setState({crimes: data})
   })
+  // const rOUkCrimes = this.fetchCrimeData();
+  debugger;
+  this.setState({rOUkCrimes: this.fetchCrimeData()})
+  debugger;
+
 }
 
 render(){
