@@ -21,9 +21,9 @@ const StoryList = (props) => {
 
 
   return (
-    <div>
-    <p>  </p>
-    <h2> Lastest Crime News </h2>
+    <div >
+
+    <h2 className="header"> Lastest Crime News </h2>
     <GridList justify="center" spacing={50}  cellHeight='auto'  cols={3}>
        {stories}
     </GridList>

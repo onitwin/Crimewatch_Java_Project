@@ -1,5 +1,11 @@
 import React, {Component} from 'react'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 import MapComponent from "../components/map/MapComponent"
+
+
+
+
 
 class CrimeContainer extends Component{
   constructor(props){
@@ -31,7 +37,7 @@ async  fetchPostcodeData(postcode){
  fetchCrimeData(postcode){
   const url = ("https://data.police.uk/api/crimes-at-location?date="+this.state.date+"&lat="+postcode.latitude +"&lng="+postcode.longitude)
    fetch(url).then(data => data.json()).then((data) =>{
-   this.setState({crimes: data})}).catch(alert('....loading'))
+   this.setState({crimes: data})})
 
 }
 
@@ -81,16 +87,32 @@ handleSubmit(event){
 
 render(){
   return(
-<div>
- <p> Crime Front Page </p>
- <p> Please enter a postcode and date of an area in <strong>England</strong> and<strong> Wales</strong> you'd like to search </p>
- <form  onSubmit={this.handleSubmit}>
-   <input type="text" placeholder="Postcode"
-   onChange={this.handlePostcodeChange} value={this.state.postcode}/>
- <input type="month" placeholder="date"   onChange={this.handleDateChange} value={this.state.date} min='2017-03' max='2020-02'/>
-   <button type="submit"> Submit </button>
- </form>
+<div  class="centered">
+  <p>
 
+  </p>
+ <p> Please enter a postcode and date of an area in <strong>England</strong> and<strong> Wales</strong> you'd like to search </p>
+
+ <Form onSubmit={this.handleSubmit}  >
+   <Form.Group controlId="formPostcode">
+     <Form.Label maxWidth="1">Postcode</Form.Label>
+     <Form.Control maxWidth="1" type="postcode" placeholder="Postcode"onChange={this.handlePostcodeChange} value={this.state.postcode} />
+     <Form.Text className="text-muted">
+       Only English and Welsh postcodes
+     </Form.Text>
+   </Form.Group>
+
+   <Form.Group controlId="formDate">
+     <Form.Label>Date</Form.Label>
+     <Form.Control type="month" placeholder="Date" onChange={this.handleDateChange} value={this.state.date} min='2017-03' max='2020-02'/>
+   </Form.Group>
+   <Form.Group controlId="formBasicCheckbox">
+     <Form.Check type="checkbox" label="Check me out" />
+   </Form.Group>
+   <Button variant="primary" type="submit">
+     Submit
+   </Button>
+ </Form>
 
  <MapComponent crimes={this.state.crimes} postcodeData={this.state.postcode_data}/>
 

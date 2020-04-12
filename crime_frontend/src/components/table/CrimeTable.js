@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -173,9 +173,9 @@ export default function CrimeTable(props) {
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, crimes.length - page * rowsPerPage);
 
   return (
-    <Fragment className={classes.root}>
+    <div className="centered">
     <p>    </p>
-    <h2>  Scottish Crime Data (2018/2019) </h2>
+    <h2 className="header">  Scottish Crime Data (2018/2019) </h2>
       <Paper className={classes.paper}>
 
         <TableContainer>
@@ -246,6 +246,6 @@ export default function CrimeTable(props) {
          control={<Switch checked={dense} onChange={handleChangeDense} />}
          label="Dense padding"
        />
-     </Fragment>
+     </div>
    );
  }

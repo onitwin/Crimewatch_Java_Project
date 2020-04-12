@@ -18,7 +18,7 @@ const SafetyTipList = (props) => {
 
   return(
     <Fragment>
-    <h1> Tips To Say Safe </h1>
+    <h1 className="header"> Tips To Say Safe </h1>
     <ul className="component-list">
      {safetyTips}
      </ul>
