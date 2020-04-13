@@ -11,13 +11,15 @@ import {Icon} from "leaflet"
 const MapComponent =(props)=>{
   const position = [props.postcodeData.latitude,props.postcodeData.longitude]
 
-
   const leafletMarkers=props.crimes.map((crime)=>(
-    <Marker key={crime.id} position={[(crime.location.latitude),(crime.location.longitude)]}/>
+    <Marker className={crime.category} key={`crime_${crime.id}`}position={[(crime.location.latitude),(crime.location.longitude)]} draggable="true">
+    <Popup>
+    <p><strong>Crime Type:</strong></p>
+    <p>{crime.category}</p>
+    </Popup>
+
+    </Marker>
   ))
-
-
-
 
 
 
