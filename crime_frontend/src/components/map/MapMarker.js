@@ -7,7 +7,7 @@ const MapMarker =(props)=>{
     return console.log("nothing to report")
   }
 
-  const markers=props.crimes.map((crime)=>{
+  const markers=props.crimes.map((map,crime)=>{
     return (
       <Marker key={crime.id} position={[crime.location.latitude,crime.location.longitude]}/>
     )

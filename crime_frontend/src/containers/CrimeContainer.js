@@ -50,7 +50,7 @@ async  fetchPostcodeData(postcode){
 
  fetchCrimeData(postcode){
 
-  const url = ("https://data.police.uk/api/stops-street?lat="+postcode.latitude+"&lng="+postcode.longitude+"&date="+this.state.date)
+  const url = ("https://data.police.uk/api/crimes-street/all-crime?lat="+postcode.latitude+"&lng="+postcode.longitude+"&date="+this.state.date)
    fetch(url).then(data => data.json()).then((data) =>{
    this.setState({crimes: data})})
 
