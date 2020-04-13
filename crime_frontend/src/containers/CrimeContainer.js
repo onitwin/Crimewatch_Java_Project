@@ -113,7 +113,8 @@ render(){
   <p>
 
   </p>
- <p> Please enter a postcode and date of an area in  <strong>England</strong> and<strong> Wales</strong>  you'd like to search </p>
+
+ <p> For crimes in your area in  <strong>England</strong> and<strong> Wales</strong> please enter the postcode and date you'd like to search </p>
 
  <Form onSubmit={this.handleSubmit}  >
    <Form.Group controlId="formPostcode">

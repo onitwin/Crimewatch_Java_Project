@@ -12,13 +12,13 @@ const NavBar = (props) => {
        height="100"
       className="d-inline-block align-top"
        alt=" "></img> {' '}
-        Crime Aware 
+        Crime Aware
      </Navbar.Brand>
    <Nav >
      <Nav.Link href="/home">Home     </Nav.Link>
-     <Nav.Link href="/crimes">   Crime Table</Nav.Link>
+     <Nav.Link href="/crimes">   Scots</Nav.Link>
         <Nav.Link href="/news">News</Nav.Link>
-     <Nav.Link href="/safetyTips">Safety Tips</Nav.Link>
+     <Nav.Link href="/safetyTips">Tips</Nav.Link>
    </Nav>
  </Navbar>
 
