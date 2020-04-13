@@ -23,9 +23,9 @@ const StoryList = (props) => {
   return (
     <div >
 
-    <h2 className="header"> Lastest Crime News </h2>
+    <h1 className="header"> Lastest Crime News </h1>
    <Container >
-    <Card bg='dark' text='white'   cellHeight='auto'  >
+    <Card bg='dark' className="card-deck"  cellHeight='auto'  >
        {stories}
     </Card>
   </Container>

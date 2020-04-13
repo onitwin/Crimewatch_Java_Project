@@ -66,6 +66,11 @@ code {
 
 
 }
+
+.card-deck{
+    margin: 10px;
+}
+
 .navbar-nav {
   justify-content: space-between;
 }

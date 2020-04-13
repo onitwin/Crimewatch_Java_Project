@@ -1,35 +1,36 @@
 import React from 'react';
 import SafetyTip from './SafetyTip'
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
+import Card from 'react-bootstrap/Card';
+import Container from 'react-bootstrap/Container';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 2,
-  }
-}));
+
 
 const SafetyTipList = (props) => {
-const classes = useStyles();
+
+
   if(props.safetyTips.length === 0)
   return (<p> loading... </p>)
 
   const safetyTips = props.safetyTips.map((safetyTip, index) => {
     return(
-      <Grid key={index} item xs>
-      <SafetyTip safetyTip={safetyTip}/>
-      </Grid>
+
+
+      <div key={safetyTip.title} cols={safetyTip.cols || 1}>
+          <SafetyTip safetyTip={safetyTip}/>
+      </div>
 
     )
   })
 
   return(
     <div >
-    <h1 className={classes.root}> Tips To Say Safe </h1>
-    <Grid  className="component-list">
+    <h1 className="header"> Tips To Say Safe </h1>
+     <Container >
+    <Card bg='dark' text='white'   cellHeight='auto'  >
      {safetyTips}
 
-   </Grid>
+     </Card>
+      </Container >
    </div>
   )
 }

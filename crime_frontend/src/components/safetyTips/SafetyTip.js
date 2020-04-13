@@ -1,30 +1,25 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
+import Card from 'react-bootstrap/Card';
 
-const useStyles = makeStyles((theme) => ({
 
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
-}));
 
 const SafetyTip = (props) => {
-const classes = useStyles();
+
 
   if(!props.safetyTip){
     return "Loading"
   }
 
   return(
-    <Paper className={classes.paper}>
+    <div className= "stories">
+    <Card.Header as="h5">  {props.safetyTip.title} </Card.Header>
 
-      <h2> {props.safetyTip.title} </h2>
+  <Card.Body>
+
       <p> {props.safetyTip.description} </p>
 
-      </Paper>
+  </Card.Body>
+  </div>
   )
 }
 
