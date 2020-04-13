@@ -11,7 +11,7 @@ class CrimeContainer extends Component{
   constructor(props){
     super(props);
     this.state = {
-      crimes: "",
+      crimes: [],
       postcode: "",
       postcode_data:{longitude:-4.251433,latitude:55.860916},
       date: ""
