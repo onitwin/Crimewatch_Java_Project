@@ -6,18 +6,9 @@ const Story = (props) =>{
 
   return (
      <Fragment>
-
-
-       <h4>
-
-       {props.story.title}
-    </h4>
-    <p>
-   Description:  {props.story.description}
- </p>
- <p>
-Author:  {props.story.author}
- </p>
+       <h4>   {props.story.title}  </h4>
+    <p> Description:  {props.story.description} </p>
+ <p>Author:  {props.story.author} </p>
    </Fragment>
 )
 }

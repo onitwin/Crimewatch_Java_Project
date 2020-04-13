@@ -113,13 +113,13 @@ render(){
   <p>
 
   </p>
- <p> Please enter a postcode and date of an area in England  and  Wales you'd like to search </p>
+ <p> Please enter a postcode and date of an area in  <strong>England</strong> and<strong> Wales</strong>  you'd like to search </p>
 
  <Form onSubmit={this.handleSubmit}  >
    <Form.Group controlId="formPostcode">
      <Form.Label >Postcode</Form.Label>
      <Form.Control type="postcode" placeholder="Postcode"onChange={this.handlePostcodeChange} value={this.state.postcode} />
-     <Form.Text className="text-muted">
+     <Form.Text >
        Only English and Welsh postcodes
      </Form.Text>
    </Form.Group>
