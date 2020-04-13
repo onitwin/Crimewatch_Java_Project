@@ -58,8 +58,6 @@ code {
   height: 50vh;
   border:10px double black;
 }
-<<<<<<< HEAD
-=======
 
 #MapContainer{
   align-items: center;
@@ -81,4 +79,3 @@ span.input-group-addon {
     font-style: "inconsolata";
 
 }
->>>>>>> develop
