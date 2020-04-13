@@ -5,10 +5,12 @@ const Story = (props) =>{
 
 
   return (
-     <div>
+     <Fragment>
+
 
        <h4>
-      Title: {props.story.title}
+
+       {props.story.title}
     </h4>
     <p>
    Description:  {props.story.description}
@@ -16,7 +18,7 @@ const Story = (props) =>{
  <p>
 Author:  {props.story.author}
  </p>
-   </div>
+   </Fragment>
 )
 }
 

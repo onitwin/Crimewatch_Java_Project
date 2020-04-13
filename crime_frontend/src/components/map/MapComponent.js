@@ -1,27 +1,42 @@
-import React,{Fragment,Component} from 'react';
+
+import React, {Fragment} from 'react';
+
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
+import MapMarker from "./MapMarker";
 
 
 
 const MapComponent =(props)=>{
 
-  const position = [53.483959,-2.244644]
+  const position = [props.postcodeData.latitude,props.postcodeData.longitude]
   return (
-    <div className='mapDiv'>
+    <Fragment className='mapDiv'>
 
-    <Map center={position} zoom={10}>
+    <Map center={position} zoom={16}>
     <TileLayer
     attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     />
+
+
     <Marker position={position}>
     <Popup>
-    This is holding text <br /> Should be able to update
-    <br/>with crime data
+    <p>This is the original with position <br/>tied to start point</p>
     </Popup>
     </Marker>
+
+
+    <Marker position={[55.860300,-4.251400]}>
+    
+    </Marker>
+
+
+
+
+
+
     </Map>
-    </div>
+    </Fragment>
   )
 
 
