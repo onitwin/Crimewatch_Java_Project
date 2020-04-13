@@ -1,7 +1,8 @@
 
 import React from 'react';
-
-import { Map, Marker, TileLayer } from 'react-leaflet';
+import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
+import MapMarker from "./MapMarker";
+import {Icon} from "leaflet"
 
 
 
