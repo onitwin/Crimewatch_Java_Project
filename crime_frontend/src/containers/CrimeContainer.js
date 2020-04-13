@@ -109,7 +109,7 @@ render(){
 
 
   return(
-<div  className="centered">
+<div  className="container">
   <p>
 
   </p>

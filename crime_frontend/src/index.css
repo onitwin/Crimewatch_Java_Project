@@ -30,8 +30,9 @@ body {
   background-image: url('./background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  height: 100%;
   color: white;
-  back
+
 
 }
 
@@ -48,13 +49,21 @@ code {
   font-size: 22px;
   font-style: "inconsolata";
   color: white;
-
-
 }
+
+/* .stories{
+  background-color: 	rgb(67, 24, 24, 0.4);
+} */
 .text{
   font-size: 22px;
   font-style: "inconsolata";
   color: white;
+
+}
+
+.new{
+  color: black;
+
 
 }
 .navbar-nav {
@@ -64,6 +73,7 @@ code {
 .header{
   text-align: center;
   padding: 50px;
+  color: white;
 }
 
 .leaflet-container {

@@ -1,7 +1,7 @@
 import React from 'react';
 import Story from './Story';
-import GridListTile from '@material-ui/core/GridListTile';
-import GridList from '@material-ui/core/GridList';
+import Card from 'react-bootstrap/Card';
+import Container from 'react-bootstrap/Container'
 
 const StoryList = (props) => {
 
@@ -11,9 +11,9 @@ const StoryList = (props) => {
   }
 
   const stories =  props.stories.map((story) => (
-      <GridListTile key={story.title} cols={story.cols || 1}>
+      <div key={story.title} cols={story.cols || 1}>
         <Story  story={story}/>
-      </GridListTile>
+      </div>
 
         ))
 
@@ -21,12 +21,14 @@ const StoryList = (props) => {
 
 
   return (
-    <div className="text">
+    <div >
 
     <h2 className="header"> Lastest Crime News </h2>
-    <GridList justify="center" spacing={50}  cellHeight='auto'  cols={3}>
+   <Container >
+    <Card bg='dark' text='white'   cellHeight='auto'  >
        {stories}
-    </GridList>
+    </Card>
+  </Container>
     </div>
 )
 

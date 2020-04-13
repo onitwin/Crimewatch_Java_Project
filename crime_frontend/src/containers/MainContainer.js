@@ -8,12 +8,14 @@ import SafetyTipsContainer from './SafetyTipsContainer'
 
 
 
+
 const MainContainer = () => {
 
 
   return(
 
 
+    <div className="text">
     <Router>
     <Fragment>
     <NavBar/>
@@ -25,6 +27,7 @@ const MainContainer = () => {
     </Switch>
     </Fragment>
     </Router>
+    </div>
   )
 }
 
