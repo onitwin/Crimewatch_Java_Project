@@ -25,13 +25,14 @@ class TableContainer extends Component{
     //    })
     //    .catch(err => console.error);
     debugger;
-       fetch(url)
+      return fetch(url)
       .then(res => res.json())
       .then((res) =>{
          //this.setState({rOUkCrimes:res})
          return {res}
       })
-        .catch(alert('....loading'))
+        // .catch(alert('....loading'))
+           .catch(err => console.error());
 
       //  fetchCrimeData(postcode){
       //   const url = ("https://data.police.uk/api/crimes-at-location?date="+this.state.date+"&lat="+postcode.latitude +"&lng="+postcode.longitude)
@@ -45,11 +46,12 @@ class TableContainer extends Component{
   const request = new Request();
   request.get('api/crimes').then((data) => {
     this.setState({crimes: data})
+    this.setState({rOUkCrimes: this.fetchCrimeData()})
+    debugger;
+
   })
   // const rOUkCrimes = this.fetchCrimeData();
-  debugger;
-  this.setState({rOUkCrimes: this.fetchCrimeData()})
-  debugger;
+  //debugger;
 
 }
 
