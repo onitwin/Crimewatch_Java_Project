@@ -49,8 +49,19 @@ const headCells = [
   { id: 'numberOfHouseBreakIns', numeric: true, disablePadding: false, label: 'House Break-ins' },
   { id: 'numberOfMotorThefts', numeric: true, disablePadding: false, label: 'Motor Thefts' },
   { id: 'numberOfNonSexualCrimesOfViolence', numeric: true, disablePadding: false, label: 'Non-sexual Crimes of Violence' },
-    { id: 'numberOfSexualCrimes', numeric: true, disablePadding: false, label: 'Sexual Crimes' },
+  { id: 'numberOfSexualCrimes', numeric: true, disablePadding: false, label: 'Sexual Crimes' },
 ];
+
+const rOUkHeadCells = [
+  {id: 'rOUKPlace', numeric: false, disablePadding: true, label: 'Place' },
+  { id: 'numberOfAntiSocialBehaviour', numeric: true, disablePadding: false, label: 'Anti-Social Behaviour' },
+  { id: 'numberOfDrugs', numeric: true, disablePadding: false, label: 'Drugs' },
+  { id: 'numberOfOtherTheft', numeric: true, disablePadding: false, label: 'Other Theft' },
+  { id: 'numberOfPublicOrder', numeric: true, disablePadding: false, label: 'Public Order' },
+  { id: 'numberOfVehicleCrime', numeric: true, disablePadding: false, label: 'Vehicle Crime' },
+  { id: 'numberOfViolentCrime', numeric: true, disablePadding: false, label: 'Violent Crime' },
+  { id: 'numberOfOtherCrime', numeric: true, disablePadding: false, label: 'Other Crime' }
+]
 
 
 function EnhancedTableHead(props) {
@@ -67,7 +78,7 @@ function EnhancedTableHead(props) {
         <TableCell >
           <p>   </p>
         </TableCell>
-        {headCells.map((headCell) => (
+        {rOUkHeadCells.map((headCell) => (
           <TableCell
             key={headCell.id}
             align={headCell.numeric ? 'right' : 'left'}
@@ -150,6 +161,7 @@ export default function CrimeTable(props) {
   };
 
   const crimes = props.crimes
+  const rOUkCrimes = props.rOUkCrimes
 
 
 
@@ -173,7 +185,69 @@ export default function CrimeTable(props) {
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, crimes.length - page * rowsPerPage);
 
   return (
+
+
     <div className="centered">
+    <p>    </p>
+    <h2 className="header"> English and Welsh Crime Data </h2>
+    <p>{rOUkCrimes.value}</p>
+    <TableContainer>
+      <Table
+        className={classes.table}
+        aria-labelledby="tableTitle"
+        size={dense ? 'small' : 'medium'}
+        aria-label="enhanced table"
+      >
+      <EnhancedTableHead
+        classes={classes}
+        numSelected={selected.length}
+        order={order}
+        orderBy={orderBy}
+
+        onRequestSort={handleRequestSort}
+        rowCount={rOUkCrimes.length}
+      />
+      <TableBody>
+        {stableSort(rOUkCrimes, getComparator(order, orderBy))
+
+          .map((crime, index) => {
+            const isItemSelected = isSelected(crime.featureName);
+            const labelId = `enhanced-table-checkbox-${index}`;
+
+            return (
+              <TableRow
+                hover
+
+                key={crime.featureName}
+                selected={isItemSelected}
+              >
+                <TableCell >
+                  <p> </p>
+                </TableCell>
+                <TableCell component="th" id={labelId} scope="row" padding="none">
+                  {crime.featureName}
+                </TableCell>
+                <TableCell align="right">{crime.numberOfFrauds}</TableCell>
+                <TableCell align="right">{crime.numberOfHouseBreakIns}</TableCell>
+                <TableCell align="right">{crime.numberOfMotorThefts}</TableCell>
+                <TableCell align="right">{crime.numberOfNonSexualCrimesOfViolence}</TableCell>
+               <TableCell align="right">{crime.numberOfSexualCrimes}</TableCell>
+
+              </TableRow>
+            );
+          })}
+
+
+
+
+
+
+
+
+      )
+        </TableBody>
+      </Table>
+    </TableContainer>
     <p>    </p>
     <h2 className="header">  Scottish Crime Data (2018/2019) </h2>
       <Paper className={classes.paper}>
