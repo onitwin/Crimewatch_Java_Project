@@ -1,7 +1,7 @@
 
-import React, {Fragment} from 'react';
+import React from 'react';
 
-import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
+import { Map, Marker, TileLayer } from 'react-leaflet';
 
 
 
@@ -12,7 +12,7 @@ const MapComponent =(props)=>{
 
 
   const leafletMarkers=props.crimes.map((crime)=>(
-    <Marker key={`crime_${crime.id}`}position={[(crime.location.latitude),(crime.location.longitude)]}/>
+    <Marker key={crime.id} position={[(crime.location.latitude),(crime.location.longitude)]}/>
   ))
 
 

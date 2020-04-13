@@ -12,7 +12,7 @@ const NavBar = (props) => {
        height="100"
       className="d-inline-block align-top"
        alt=" "></img> {' '}
-       <bold> Crime Aware </bold>
+        Crime Aware 
      </Navbar.Brand>
    <Nav >
      <Nav.Link href="/home">Home     </Nav.Link>
