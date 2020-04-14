@@ -242,133 +242,88 @@ export default function CrimeTable(props) {
 
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, crimes.length - page * rowsPerPage);
 
+  const newCrimes = rOUkCrimeCategories.map((crime) =>{
+    return <p>{crime}</p>
+  })
+
   return (
 
+        <div className="centered">
+          <h2 className="header"> English and Welsh Crime Data </h2>
+          <p> {newCrimes}</p>
 
-    <div className="centered">
-    <p> {rOUkCrimeCategories}   </p>
-    <h2 className="header"> English and Welsh Crime Data </h2>
-    <TableContainer>
-      <Table
-        className={classes.table}
-        aria-labelledby="tableTitle"
-        size={dense ? 'small' : 'medium'}
-        aria-label="enhanced table"
-      >
-      <TableBody>
-        {stableSort(rOUkCrimeCategories, getComparator(order, orderBy))
-          .map((rOUkCrimeCategory, index) => {
-            const isItemSelected = isSelected(rOUkCrimeCategory.featureName);
-            const labelId = `enhanced-table-checkbox-${index}`;
+        <p>    </p>
+        <h2 className="header">  Scottish Crime Data (2018/2019) </h2>
+          <Paper className={classes.paper}>
 
-            return (
-              <TableRow
-                hover
-
-                key={rOUkCrimeCategory.featureName}
-                selected={isItemSelected}
+            <TableContainer>
+              <Table
+                className={classes.table}
+                aria-labelledby="tableTitle"
+                size={dense ? 'small' : 'medium'}
+                aria-label="enhanced table"
               >
-                <TableCell >
-                  <p> </p>
-                </TableCell>
-                <TableCell component="th" id={labelId} scope="row" padding="none">
-                  {rOUkCrimeCategory.featureName}
-                </TableCell>
+                <EnhancedTableHead
+                  classes={classes}
+                  numSelected={selected.length}
+                  order={order}
+                  orderBy={orderBy}
 
-                <TableCell align="right">{rOUkCrimeCategory.numberOfFrauds}</TableCell>
-                <TableCell align="right">{rOUkCrimeCategory.numberOfHouseBreakIns}</TableCell>
-                <TableCell align="right">{rOUkCrimeCategory.numberOfMotorThefts}</TableCell>
-                <TableCell align="right">{rOUkCrimeCategory.numberOfNonSexualCrimesOfViolence}</TableCell>
-               <TableCell align="right">{rOUkCrimeCategory.numberOfSexualCrimes}</TableCell>
+                  onRequestSort={handleRequestSort}
+                  rowCount={crimes.length}
+                />
+                <TableBody>
+                  {stableSort(crimes, getComparator(order, orderBy))
+                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                    .map((crime, index) => {
+                      const isItemSelected = isSelected(crime.featureName);
+                      const labelId = `enhanced-table-checkbox-${index}`;
 
-              </TableRow>
-            );
-          })}
+                      return (
+                        <TableRow
+                          hover
 
+                          key={crime.featureName}
+                          selected={isItemSelected}
+                        >
+                          <TableCell >
+                            <p> </p>
+                          </TableCell>
+                          <TableCell component="th" id={labelId} scope="row" padding="none">
+                            {crime.featureName}
+                          </TableCell>
+                          <TableCell align="right">{crime.numberOfFrauds}</TableCell>
+                          <TableCell align="right">{crime.numberOfHouseBreakIns}</TableCell>
+                          <TableCell align="right">{crime.numberOfMotorThefts}</TableCell>
+                          <TableCell align="right">{crime.numberOfNonSexualCrimesOfViolence}</TableCell>
+                         <TableCell align="right">{crime.numberOfSexualCrimes}</TableCell>
 
-
-
-
-
-
-
-      )
-        </TableBody>
-      </Table>
-    </TableContainer>
-
-    <p>    </p>
-    <h2 className="header">  Scottish Crime Data (2018/2019) </h2>
-      <Paper className={classes.paper}>
-
-        <TableContainer>
-          <Table
-            className={classes.table}
-            aria-labelledby="tableTitle"
-            size={dense ? 'small' : 'medium'}
-            aria-label="enhanced table"
-          >
-            <EnhancedTableHead
-              classes={classes}
-              numSelected={selected.length}
-              order={order}
-              orderBy={orderBy}
-
-              onRequestSort={handleRequestSort}
-              rowCount={crimes.length}
-            />
-            <TableBody>
-              {stableSort(crimes, getComparator(order, orderBy))
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((crime, index) => {
-                  const isItemSelected = isSelected(crime.featureName);
-                  const labelId = `enhanced-table-checkbox-${index}`;
-
-                  return (
-                    <TableRow
-                      hover
-
-                      key={crime.featureName}
-                      selected={isItemSelected}
-                    >
-                      <TableCell >
-                        <p> </p>
-                      </TableCell>
-                      <TableCell component="th" id={labelId} scope="row" padding="none">
-                        {crime.featureName}
-                      </TableCell>
-                      <TableCell align="right">{crime.numberOfFrauds}</TableCell>
-                      <TableCell align="right">{crime.numberOfHouseBreakIns}</TableCell>
-                      <TableCell align="right">{crime.numberOfMotorThefts}</TableCell>
-                      <TableCell align="right">{crime.numberOfNonSexualCrimesOfViolence}</TableCell>
-                     <TableCell align="right">{crime.numberOfSexualCrimes}</TableCell>
-
+                        </TableRow>
+                      );
+                    })}
+                  {emptyRows > 0 && (
+                    <TableRow style={{ height: (dense ? 33 : 53) * emptyRows }}>
+                      <TableCell colSpan={6} />
                     </TableRow>
-                  );
-                })}
-              {emptyRows > 0 && (
-                <TableRow style={{ height: (dense ? 33 : 53) * emptyRows }}>
-                  <TableCell colSpan={6} />
-                </TableRow>
-              )}
-            </TableBody>
-          </Table>
-         </TableContainer>
-         <TablePagination
-           rowsPerPageOptions={[5, 10
-, 25]}
-           component="div"
-           count={crimes.length}
-           rowsPerPage={rowsPerPage}
-           page={page}
-           onChangePage={handleChangePage}
-           onChangeRowsPerPage={handleChangeRowsPerPage}
-         />
-       </Paper>
-       <FormControlLabel
-         control={<Switch checked={dense} onChange={handleChangeDense} />}
-         label="Dense padding"
-       />
-     </div>
+                  )}
+                </TableBody>
+              </Table>
+             </TableContainer>
+             <TablePagination
+               rowsPerPageOptions={[5, 10
+    , 25]}
+               component="div"
+               count={crimes.length}
+               rowsPerPage={rowsPerPage}
+               page={page}
+               onChangePage={handleChangePage}
+               onChangeRowsPerPage={handleChangeRowsPerPage}
+             />
+           </Paper>
+           <FormControlLabel
+             control={<Switch checked={dense} onChange={handleChangeDense} />}
+             label="Dense padding"
+           />
+       </div>
    );
  }
