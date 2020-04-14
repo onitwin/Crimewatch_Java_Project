@@ -10,7 +10,8 @@ class TableContainer extends Component{
     this.state = {
       crimes: [],
       rOUkCrimes: [],
-      uniqueROUkCrimeCategories:{}
+      rOUkUniqueCrimes: [],
+      uniqueROUkCrimeCategories:[]
     }
   }
 
@@ -28,7 +29,7 @@ class TableContainer extends Component{
       });
 
 
-      // let uniqueROUkCrimeCategories = {itemName, count};
+      // let uniqueROUkCrimeCategories = {itemName string, count int};
       // roukcrimes.forEach((item) => {
       //     if(uniqueROUkCrimeCategories.indexOf(item.category) < 0) {
       //       debugger;
@@ -80,13 +81,12 @@ class TableContainer extends Component{
     fetch(url)
        .then(res => res.json())
        .then(roukcrimes => {
-       // this.setState({ rOUkCrimes: roukcrimes})
-       debugger;
+         // this.setState({ rOUkCrimes: roukcrimes})
+         debugger;
 
-       //scroll through each member of roukcrimes and count the occurences of each category name:
-       // this.uniqueCategoryCounter(roukcrimes);
-       this.setState({ rOUkCrimes: this.uniqueCategoryCounter(roukcrimes)})
-       debugger;
+         //scroll through each member of roukcrimes and count the occurences of each category name:
+         this.setState({ rOUkUniqueCrimes: this.uniqueCategoryCounter(roukcrimes)})
+         debugger;
        })
 
 
@@ -100,7 +100,7 @@ class TableContainer extends Component{
         <Fragment>
         <Switch>
         <Route render={(props) =>{
-        return <CrimeTable crimes={this.state.crimes} rOUkCrimes={this.state.rOUkCrimeCategories}/>
+        return <CrimeTable crimes={this.state.crimes} rOUkCrimes={this.state.rOUkUniqueCrimes}/>
       }} />
         </Switch>
         </Fragment>

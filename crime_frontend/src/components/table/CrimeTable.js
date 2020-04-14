@@ -101,7 +101,7 @@ function SimpleTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {this.props.rOUkCrimes.map((row) => (
+          {this.props.rOUkCrimeCategories.map((row) => (
             <TableRow key={row.category}>
               <TableCell component="th" scope="row">
                 {row.category}
@@ -223,9 +223,8 @@ export default function CrimeTable(props) {
 
   const crimes = props.crimes
   // const rOUkCrimes = props.rOUkCrimes
-  const rOUkCrimeCategories = props.rOUkCrimeCategories
-  debugger
-console.log(rOUkCrimeCategories);
+  const rOUkCrimeCategories = props.rOUkCrimes
+  console.log(props);
 
 
 
@@ -251,7 +250,7 @@ console.log(rOUkCrimeCategories);
 
 
     <div className="centered">
-    <p>    </p>
+    <p> {rOUkCrimeCategories}   </p>
     <h2 className="header"> English and Welsh Crime Data </h2>
     <TableContainer>
       <Table
@@ -267,10 +266,11 @@ console.log(rOUkCrimeCategories);
         orderBy={orderBy}
 
         onRequestSort={handleRequestSort}
-        rowCount={rOUkCrimes.length}
+
+        rowCount={rOUkCrimeCategories.length}
       />
       <TableBody>
-        {stableSort(rOUkCrimes, getComparator(order, orderBy))
+        {stableSort(rOUkCrimeCategories, getComparator(order, orderBy))
           .map((crime, index) => {
             const isItemSelected = isSelected(crime.featureName);
             const labelId = `enhanced-table-checkbox-${index}`;
