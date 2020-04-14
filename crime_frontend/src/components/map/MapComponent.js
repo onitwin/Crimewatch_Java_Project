@@ -6,8 +6,8 @@ import {Icon} from "leaflet"
 
 
 const robber= new Icon({
-  iconUrl:"./criminal",
-  iconSize:[100,100]
+  iconUrl:"./thief2.png",
+  iconSize:[25,25]
 });
 
 
@@ -16,7 +16,8 @@ const MapComponent =(props)=>{
   const position = [props.postcodeData.latitude,props.postcodeData.longitude]
 
   const leafletMarkers=props.crimes.map((crime)=>(
-    <Marker className={crime.category} key={`crime_${crime.id}`}position={[(crime.location.latitude),(crime.location.longitude)]} draggable="true">
+    <Marker className={crime.category} key={`crime_${crime.id}`}position={[(crime.location.latitude),(crime.location.longitude)]}
+    draggable="true" icon={robber}>
     <Popup>
     <p><strong>Crime Type:</strong></p>
     <div>
