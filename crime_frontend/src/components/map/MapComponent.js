@@ -43,7 +43,7 @@ const MapComponent =(props)=>{
     />
 
 
-    <Marker position={position} draggable="true" > </Marker>
+    <Marker position={position} draggable="true" icon={robber}> </Marker>
 
 
     {leafletMarkers}
