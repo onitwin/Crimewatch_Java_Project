@@ -19,7 +19,7 @@ class TableContainer extends Component{
   uniqueCategoryCounter(roukcrimes){
     //scroll through each member of roukcrimes and count the occurences of each category name:
 
-      ///WORKS BUT ONLY RETURNS UNIQUE NAMES DOESN'T GIVE COUNTS
+      // ///WORKS BUT ONLY RETURNS UNIQUE NAMES DOESN'T GIVE COUNTS
       let uniqueROUkCrimeCategories = [];
       roukcrimes.forEach((item) => {
         if(uniqueROUkCrimeCategories.indexOf(item.category) < 0) {
@@ -28,23 +28,51 @@ class TableContainer extends Component{
 
       });
 
-
-      // let uniqueROUkCrimeCategories = {itemName string, count int};
+      //  const uniqueROUkCrimeCategories = {itemCategory string, count int};
       // roukcrimes.forEach((item) => {
-      //     if(uniqueROUkCrimeCategories.indexOf(item.category) < 0) {
-      //       debugger;
-      //       uniqueROUkCrimeCategories.push(item.category);
-      //     }else{
-      //       //now to add to the count
-      //        uniqueROUkCrimeCategories.count ++;/////////////////////DONT KNOW IF THIS WILL WORK
+      //     // if(uniqueROUkCrimeCategories.indexOf(item.category) < 0) {
+      //     //   debugger;
+      //     //   uniqueROUkCrimeCategories.push(item.category);
+      //     // }else{
+      //     //   //now to add to the count
+      //     //    uniqueROUkCrimeCategories.count ++;/////////////////////DONT KNOW IF THIS WILL WORK
+      //     // }
+      //
+      //     let i = uniqueROUkCrimeCategories.findIndex(existingCat => extistingCat.itemCategory == item.category);
+      //     if(i <= -1){
+      //       uniqueROUkCrimeCategories.push({item.category, 1})
+      //     } else{
+      //       // item already exists, now increment count
+      //
       //     }
       //
       // });
 
+      /*
+      var data=[
+      {id: 555, name: "Sales", person: "Jordan" },
+      {id: 555, name: "Sales", person: "Bob" },
+      {id: 555, name: "Sales", person: "John" },
+      {id: 777, name: "Accounts Payable", person: "Rhoda" },
+      {id: 777, name: "Accounts Payable", person: "Harry" },
+      {id: 888, name: "IT", person: "Joe" },
+      {id: 888, name: "IT", person: "Jake" },
+      ];
+      var resArr = [];
+      data.forEach(function(item){
+        var i = resArr.findIndex(x => x.name == item.name);
+        if(i <= -1){
+          resArr.push({id: item.id, name: item.name});
+        }
+      });
+      console.log(resArr);
+      */
+
 
 
       console.log(uniqueROUkCrimeCategories);
-      debugger;
+      return uniqueROUkCrimeCategories;
+
     }
 
   // }

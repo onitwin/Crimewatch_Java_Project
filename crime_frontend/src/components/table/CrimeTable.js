@@ -106,10 +106,6 @@ function SimpleTable() {
               <TableCell component="th" scope="row">
                 {row.category}
               </TableCell>
-              <TableCell align="right">row.calories</TableCell>
-              <TableCell align="right">row.fat</TableCell>
-              <TableCell align="right">row.carbs</TableCell>
-              <TableCell align="right">row.protein</TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -259,40 +255,31 @@ export default function CrimeTable(props) {
         size={dense ? 'small' : 'medium'}
         aria-label="enhanced table"
       >
-      <EnhancedTableHead
-        classes={classes}
-        numSelected={selected.length}
-        order={order}
-        orderBy={orderBy}
-
-        onRequestSort={handleRequestSort}
-
-        rowCount={rOUkCrimeCategories.length}
-      />
       <TableBody>
         {stableSort(rOUkCrimeCategories, getComparator(order, orderBy))
-          .map((crime, index) => {
-            const isItemSelected = isSelected(crime.featureName);
+          .map((rOUkCrimeCategory, index) => {
+            const isItemSelected = isSelected(rOUkCrimeCategory.featureName);
             const labelId = `enhanced-table-checkbox-${index}`;
 
             return (
               <TableRow
                 hover
 
-                key={crime.featureName}
+                key={rOUkCrimeCategory.featureName}
                 selected={isItemSelected}
               >
                 <TableCell >
                   <p> </p>
                 </TableCell>
                 <TableCell component="th" id={labelId} scope="row" padding="none">
-                  {crime.featureName}
+                  {rOUkCrimeCategory.featureName}
                 </TableCell>
-                <TableCell align="right">{crime.numberOfFrauds}</TableCell>
-                <TableCell align="right">{crime.numberOfHouseBreakIns}</TableCell>
-                <TableCell align="right">{crime.numberOfMotorThefts}</TableCell>
-                <TableCell align="right">{crime.numberOfNonSexualCrimesOfViolence}</TableCell>
-               <TableCell align="right">{crime.numberOfSexualCrimes}</TableCell>
+
+                <TableCell align="right">{rOUkCrimeCategory.numberOfFrauds}</TableCell>
+                <TableCell align="right">{rOUkCrimeCategory.numberOfHouseBreakIns}</TableCell>
+                <TableCell align="right">{rOUkCrimeCategory.numberOfMotorThefts}</TableCell>
+                <TableCell align="right">{rOUkCrimeCategory.numberOfNonSexualCrimesOfViolence}</TableCell>
+               <TableCell align="right">{rOUkCrimeCategory.numberOfSexualCrimes}</TableCell>
 
               </TableRow>
             );
