@@ -3,11 +3,12 @@ import React ,{Component} from 'react';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import MapMarker from "./MapMarker";
 import {Icon} from "leaflet"
+import L from "leaflet"
 
 
 const robber= new Icon({
-  iconUrl:"./criminal",
-  iconSize:[100,100]
+  iconUrl:"./images.png",
+  iconSize:[25,25]
 });
 
 
