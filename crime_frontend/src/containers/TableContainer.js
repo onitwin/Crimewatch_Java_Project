@@ -16,27 +16,39 @@ class TableContainer extends Component{
   }
 
 
+
   uniqueCategoryCounter(roukcrimes){
     //scroll through each member of roukcrimes and count the occurences of each category name:
 
       // ///WORKS BUT ONLY RETURNS UNIQUE NAMES DOESN'T GIVE COUNTS
-      let uniqueROUkCrimeCategories = [];
-      roukcrimes.forEach((item) => {
-        if(uniqueROUkCrimeCategories.indexOf(item.category) < 0) {
-          uniqueROUkCrimeCategories.push(item.category);
-        }
-
-      });
-
-      //  const uniqueROUkCrimeCategories = {itemCategory string, count int};
+      // let uniqueROUkCrimeCategories = [];
       // roukcrimes.forEach((item) => {
-      //     // if(uniqueROUkCrimeCategories.indexOf(item.category) < 0) {
-      //     //   debugger;
-      //     //   uniqueROUkCrimeCategories.push(item.category);
-      //     // }else{
-      //     //   //now to add to the count
-      //     //    uniqueROUkCrimeCategories.count ++;/////////////////////DONT KNOW IF THIS WILL WORK
-      //     // }
+      //   if(uniqueROUkCrimeCategories.indexOf(item.category) < 0) {
+      //     uniqueROUkCrimeCategories.push(item.category);
+      //   }
+      //
+      // });
+
+      //
+      // assignKey(obj, key) {
+      //   typeof obj[key] === 'undefined' ? obj[key] = 1 : obj[key]++;
+      // }
+
+      const uniqueROUkCrimeCategories = [];
+
+      roukcrimes.forEach((item) => {
+      // for(let itemCount = 0; itemCount < item.length; itemCount++){
+        typeof uniqueROUkCrimeCategories[item.category] === 'undefined' ? uniqueROUkCrimeCategories[item.category] = 1 : uniqueROUkCrimeCategories[item.category]++;
+
+        // debugger;
+        // let uniqCatArrayObject = {item.category,1}
+        // if(uniqueROUkCrimeCategories.indexOf(item.category) < 0) {
+        //
+        //   uniqueROUkCrimeCategories.push(uniqCatArrayObject);
+        // }else{
+        //   //now to increment the count
+        //    uniqueROUkCrimeCategories[itemCount+1].count ++;/////////////////////DONT KNOW IF THIS WILL WORK
+        // }
       //
       //     let i = uniqueROUkCrimeCategories.findIndex(existingCat => extistingCat.itemCategory == item.category);
       //     if(i <= -1){
@@ -46,28 +58,7 @@ class TableContainer extends Component{
       //
       //     }
       //
-      // });
-
-      /*
-      var data=[
-      {id: 555, name: "Sales", person: "Jordan" },
-      {id: 555, name: "Sales", person: "Bob" },
-      {id: 555, name: "Sales", person: "John" },
-      {id: 777, name: "Accounts Payable", person: "Rhoda" },
-      {id: 777, name: "Accounts Payable", person: "Harry" },
-      {id: 888, name: "IT", person: "Joe" },
-      {id: 888, name: "IT", person: "Jake" },
-      ];
-      var resArr = [];
-      data.forEach(function(item){
-        var i = resArr.findIndex(x => x.name == item.name);
-        if(i <= -1){
-          resArr.push({id: item.id, name: item.name});
-        }
       });
-      console.log(resArr);
-      */
-
 
 
       console.log(uniqueROUkCrimeCategories);
@@ -109,15 +100,9 @@ class TableContainer extends Component{
     fetch(url)
        .then(res => res.json())
        .then(roukcrimes => {
-         // this.setState({ rOUkCrimes: roukcrimes})
-         debugger;
-
          //scroll through each member of roukcrimes and count the occurences of each category name:
          this.setState({ rOUkUniqueCrimes: this.uniqueCategoryCounter(roukcrimes)})
-         debugger;
        })
-
-
      }
 
   render(){
