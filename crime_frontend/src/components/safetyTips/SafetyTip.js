@@ -1,18 +1,25 @@
 import React from 'react';
+import Card from 'react-bootstrap/Card';
+
+
 
 const SafetyTip = (props) => {
+
 
   if(!props.safetyTip){
     return "Loading"
   }
 
   return(
-    <div className="component">
+    <div className= "stories">
+    <Card.Header as="h5">  {props.safetyTip.title} </Card.Header>
 
-      <h2> {props.safetyTip.title} </h2>
+  <Card.Body>
+
       <p> {props.safetyTip.description} </p>
-    
-      </div>
+
+  </Card.Body>
+  </div>
   )
 }
 
