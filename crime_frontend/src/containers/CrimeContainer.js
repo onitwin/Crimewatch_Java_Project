@@ -8,13 +8,17 @@ import MapComponent from "../components/map/MapComponent"
 
 
 class CrimeContainer extends Component{
+
   constructor(props){
     super(props);
     this.state = {
-      crimes: "",
+      crimes: [],
       postcode: "",
       postcode_data:{longitude:-4.251433,latitude:55.860916},
-      date: ""
+      date: "",
+
+
+
     }
 
     this.handlePostcodeChange = this.handlePostcodeChange.bind(this)
@@ -26,6 +30,16 @@ class CrimeContainer extends Component{
 
   }
 
+
+
+componentDidMount(){
+ const url= ("https://data.police.uk/api/forces")
+    fetch(url).then(data => data.json()).then((data) => {
+      this.setState({forces: data})
+    })
+
+}
+
 async  fetchPostcodeData(postcode){
   const url = "http://api.postcodes.io/postcodes/"+postcode
    await fetch(url).then(data => data.json()).then((data) => {
@@ -35,11 +49,14 @@ async  fetchPostcodeData(postcode){
 }
 
  fetchCrimeData(postcode){
-  const url = ("https://data.police.uk/api/crimes-at-location?date="+this.state.date+"&lat="+postcode.latitude +"&lng="+postcode.longitude)
+
+  const url = ("https://data.police.uk/api/crimes-street/all-crime?lat="+postcode.latitude+"&lng="+postcode.longitude+"&date="+this.state.date)
    fetch(url).then(data => data.json()).then((data) =>{
    this.setState({crimes: data})})
 
+
 }
+
 
 
 
@@ -77,7 +94,9 @@ handleSubmit(event){
   if(this.isValidPostcode(this.state.postcode)){
   this.setState({postcode:this.formatPostcode(this.state.postcode)})
   this.fetchPostcodeData(this.state.postcode)
+
   this.setState({date:this.state.date})
+
 }else{
   return  alert('An invalid postcode was submited')
 }
@@ -86,18 +105,22 @@ handleSubmit(event){
 
 
 render(){
+
+
+
   return(
-<div  class="centered">
+<div  className="container">
   <p>
 
   </p>
- <p> Please enter a postcode and date of an area in <strong>England</strong> and<strong> Wales</strong> you'd like to search </p>
+
+ <p> For crimes in your area in  <strong>England</strong> and<strong> Wales</strong> please enter the postcode and date you'd like to search </p>
 
  <Form onSubmit={this.handleSubmit}  >
    <Form.Group controlId="formPostcode">
-     <Form.Label maxWidth="1">Postcode</Form.Label>
-     <Form.Control maxWidth="1" type="postcode" placeholder="Postcode"onChange={this.handlePostcodeChange} value={this.state.postcode} />
-     <Form.Text className="text-muted">
+     <Form.Label >Postcode</Form.Label>
+     <Form.Control type="postcode" placeholder="Postcode"onChange={this.handlePostcodeChange} value={this.state.postcode} />
+     <Form.Text >
        Only English and Welsh postcodes
      </Form.Text>
    </Form.Group>
@@ -106,9 +129,7 @@ render(){
      <Form.Label>Date</Form.Label>
      <Form.Control type="month" placeholder="Date" onChange={this.handleDateChange} value={this.state.date} min='2017-03' max='2020-02'/>
    </Form.Group>
-   <Form.Group controlId="formBasicCheckbox">
-     <Form.Check type="checkbox" label="Check me out" />
-   </Form.Group>
+
    <Button variant="primary" type="submit">
      Submit
    </Button>

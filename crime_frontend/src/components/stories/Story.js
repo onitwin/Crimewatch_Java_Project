@@ -1,24 +1,27 @@
-import React, {Fragment} from 'react';
-
+import React from 'react';
+import Card from 'react-bootstrap/Card';
 
 const Story = (props) =>{
 
 
   return (
-     <Fragment>
+     <div className= "stories">
+       <Card.Header as="h5">  {props.story.title} </Card.Header>
 
-
-       <h4>
-
-       {props.story.title}
-    </h4>
+    <Card.Body>
+    <blockquote className="blockqoute mb-0">
     <p>
-   Description:  {props.story.description}
- </p>
- <p>
-Author:  {props.story.author}
- </p>
-   </Fragment>
+    {' '}
+    {props.story.description}{' '}
+     </p>
+        </blockquote>
+    <footer className="blockquote-footer" text='white'>
+ Author: <cite title="Source Title"> {props.story.author}
+    </cite>
+     </footer>
+
+   </Card.Body>
+   </div>
 )
 }
 

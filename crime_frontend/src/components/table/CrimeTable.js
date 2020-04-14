@@ -53,8 +53,10 @@ const headCells = [
 ];
 
 const rOUkHeadCells = [
-  {id: 'rOUKPlace', numeric: false, disablePadding: true, label: 'Place' },
+  { id: 'rOUKPlace', numeric: false, disablePadding: true, label: 'Place' },
   { id: 'numberOfAntiSocialBehaviour', numeric: true, disablePadding: false, label: 'Anti-Social Behaviour' },
+  { id: 'numberOfBurglaries', numeric: true, disablePadding: false, label: 'Burglaries' },
+  { id: 'numberOfArson', numeric: true, disablePadding: false, label: 'Arson' },
   { id: 'numberOfDrugs', numeric: true, disablePadding: false, label: 'Drugs' },
   { id: 'numberOfOtherTheft', numeric: true, disablePadding: false, label: 'Other Theft' },
   { id: 'numberOfPublicOrder', numeric: true, disablePadding: false, label: 'Public Order' },
@@ -62,6 +64,65 @@ const rOUkHeadCells = [
   { id: 'numberOfViolentCrime', numeric: true, disablePadding: false, label: 'Violent Crime' },
   { id: 'numberOfOtherCrime', numeric: true, disablePadding: false, label: 'Other Crime' }
 ]
+
+
+
+
+// function createData(name, calories, fat, carbs, protein) {
+//   return { name, calories, fat, carbs, protein };
+// }
+//
+// const rows = [
+  // createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
+  // createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
+  // createData('Eclair', 262, 16.0, 24, 6.0),
+  // createData('Cupcake', 305, 3.7, 67, 4.3),
+  // createData('Gingerbread', 356, 16.0, 49, 3.9),
+// ];
+
+function SimpleTable() {
+  const classes = useStyles();
+
+  return (
+    <TableContainer component={Paper}>
+      <Table className={classes.table} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>{rOUkHeadCells.rOUKPlace}</TableCell>
+            <TableCell align="right">{rOUkHeadCells.numberOfAntiSocialBehaviour}</TableCell>
+            <TableCell align="right">{rOUkHeadCells.numberOfBurglaries}</TableCell>
+            <TableCell align="right">{rOUkHeadCells.numberOfArson}</TableCell>
+            <TableCell align="right">{rOUkHeadCells.numberOfDrugs}</TableCell>
+            <TableCell align="right">{rOUkHeadCells.numberOfOtherTheft}</TableCell>
+            <TableCell align="right">{rOUkHeadCells.numberOfPublicOrder}</TableCell>
+            <TableCell align="right">{rOUkHeadCells.numberOfVehicleCrime}</TableCell>
+            <TableCell align="right">{rOUkHeadCells.numberOfViolentCrime}</TableCell>
+            <TableCell align="right">{rOUkHeadCells.numberOfOtherCrime}</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {this.props.rOUkCrimes.map((row) => (
+            <TableRow key={row.category}>
+              <TableCell component="th" scope="row">
+                {row.category}
+              </TableCell>
+              <TableCell align="right">row.calories</TableCell>
+              <TableCell align="right">row.fat</TableCell>
+              <TableCell align="right">row.carbs</TableCell>
+              <TableCell align="right">row.protein</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
+}
+
+
+
+
+
+
 
 
 function EnhancedTableHead(props) {
@@ -75,10 +136,10 @@ function EnhancedTableHead(props) {
   return (
     <TableHead>
       <TableRow>
-        <TableCell >
-          <p>   </p>
-        </TableCell>
-        {rOUkHeadCells.map((headCell) => (
+      <TableCell>
+        <p> </p>
+      </TableCell>
+        {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
             align={headCell.numeric ? 'right' : 'left'}
@@ -161,8 +222,10 @@ export default function CrimeTable(props) {
   };
 
   const crimes = props.crimes
-  const rOUkCrimes = props.rOUkCrimes
-
+  // const rOUkCrimes = props.rOUkCrimes
+  const rOUkCrimeCategories = props.rOUkCrimeCategories
+  debugger
+console.log(rOUkCrimeCategories);
 
 
 
@@ -190,7 +253,6 @@ export default function CrimeTable(props) {
     <div className="centered">
     <p>    </p>
     <h2 className="header"> English and Welsh Crime Data </h2>
-    <p>{rOUkCrimes.value}</p>
     <TableContainer>
       <Table
         className={classes.table}
@@ -209,7 +271,6 @@ export default function CrimeTable(props) {
       />
       <TableBody>
         {stableSort(rOUkCrimes, getComparator(order, orderBy))
-
           .map((crime, index) => {
             const isItemSelected = isSelected(crime.featureName);
             const labelId = `enhanced-table-checkbox-${index}`;
@@ -248,6 +309,7 @@ export default function CrimeTable(props) {
         </TableBody>
       </Table>
     </TableContainer>
+
     <p>    </p>
     <h2 className="header">  Scottish Crime Data (2018/2019) </h2>
       <Paper className={classes.paper}>
