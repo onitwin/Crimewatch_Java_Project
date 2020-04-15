@@ -18,30 +18,13 @@ class TableContainer extends Component{
 
 
   uniqueCategoryCounter(roukcrimes){
+    let uniqueROUkCrimeCategories = {};
+    roukcrimes.forEach((item) => {
+      typeof uniqueROUkCrimeCategories[item.category] === 'undefined' ? uniqueROUkCrimeCategories[item.category] = 1 : uniqueROUkCrimeCategories[item.category]++;
+    });
 
-      let uniqueROUkCrimeCategories = {};
-      roukcrimes.forEach((item) => {
-        typeof uniqueROUkCrimeCategories[item.category] === 'undefined' ? uniqueROUkCrimeCategories[item.category] = 1 : uniqueROUkCrimeCategories[item.category]++;
-      });
-
-
-
-
-      console.log(uniqueROUkCrimeCategories);
-      return uniqueROUkCrimeCategories;
-
-    }
-
-  // }
-
-    //}
-
-
-
-
-
-
-
+    return uniqueROUkCrimeCategories;
+  }
 
 
   componentDidMount(){

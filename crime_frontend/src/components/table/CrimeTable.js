@@ -52,73 +52,6 @@ const headCells = [
   { id: 'numberOfSexualCrimes', numeric: true, disablePadding: false, label: 'Sexual Crimes' },
 ];
 
-const rOUkHeadCells = [
-  { id: 'rOUKPlace', numeric: false, disablePadding: true, label: 'Place' },
-  { id: 'numberOfAntiSocialBehaviour', numeric: true, disablePadding: false, label: 'Anti-Social Behaviour' },
-  { id: 'numberOfBurglaries', numeric: true, disablePadding: false, label: 'Burglaries' },
-  { id: 'numberOfArson', numeric: true, disablePadding: false, label: 'Arson' },
-  { id: 'numberOfDrugs', numeric: true, disablePadding: false, label: 'Drugs' },
-  { id: 'numberOfOtherTheft', numeric: true, disablePadding: false, label: 'Other Theft' },
-  { id: 'numberOfPublicOrder', numeric: true, disablePadding: false, label: 'Public Order' },
-  { id: 'numberOfVehicleCrime', numeric: true, disablePadding: false, label: 'Vehicle Crime' },
-  { id: 'numberOfViolentCrime', numeric: true, disablePadding: false, label: 'Violent Crime' },
-  { id: 'numberOfOtherCrime', numeric: true, disablePadding: false, label: 'Other Crime' }
-]
-
-
-
-// function createData(name, calories, fat, carbs, protein) {
-//   return { name, calories, fat, carbs, protein };
-// }
-//
-// const rows = [
-  // createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  // createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  // createData('Eclair', 262, 16.0, 24, 6.0),
-  // createData('Cupcake', 305, 3.7, 67, 4.3),
-  // createData('Gingerbread', 356, 16.0, 49, 3.9),
-// ];
-
-function SimpleTable() {
-  const classes = useStyles();
-
-  return (
-    <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>{rOUkHeadCells.rOUKPlace}</TableCell>
-            <TableCell align="right">{rOUkHeadCells.numberOfAntiSocialBehaviour}</TableCell>
-            <TableCell align="right">{rOUkHeadCells.numberOfBurglaries}</TableCell>
-            <TableCell align="right">{rOUkHeadCells.numberOfArson}</TableCell>
-            <TableCell align="right">{rOUkHeadCells.numberOfDrugs}</TableCell>
-            <TableCell align="right">{rOUkHeadCells.numberOfOtherTheft}</TableCell>
-            <TableCell align="right">{rOUkHeadCells.numberOfPublicOrder}</TableCell>
-            <TableCell align="right">{rOUkHeadCells.numberOfVehicleCrime}</TableCell>
-            <TableCell align="right">{rOUkHeadCells.numberOfViolentCrime}</TableCell>
-            <TableCell align="right">{rOUkHeadCells.numberOfOtherCrime}</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {this.props.rOUkCrimeCategories.map((row) => (
-            <TableRow key={row.category}>
-              <TableCell component="th" scope="row">
-                {row.category}
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-  );
-}
-
-
-
-
-
-
-
 
 function EnhancedTableHead(props) {
   const { classes, order, orderBy, onRequestSort } = props;
@@ -220,46 +153,16 @@ export default function CrimeTable(props) {
   };
 
   const crimes = props.crimes
-  // const rOUkCrimes = props.rOUkCrimes
   const rOUkCrimeCategories = props.rOUkCrimes
-  console.log(rOUkCrimeCategories);
 
- // const newCrimes = rOUkCrimeCategories.map((crimeCat, count) =>{
- //    return <p>{crimeCat}: {count}</p>
- //    // return <li>{crime.key}: {crime.value} </li>
- //    // return <p>(key, value)</p>;
- //
- //  // const newCrimes =  rOUkCrimeCategories.forEach(function(obj, index){
- //  //     console.log(index);
- //  //     for (var key in obj){
- //  //       console.log(key, obj[key]);
- //  //     }
- //  //   });
- //    // for (let [key, value] of Object.entries(rOUkCrimeCategories)) {
- //    //   console.log(key, value);
- //    // }
- //  })
-const newCrimes = [];
-for(let crimeCat in rOUkCrimeCategories){
-  const crimeDomStats = (
-    <li key={crimeCat}> {crimeCat}: {rOUkCrimeCategories[crimeCat]} </li>
+  const newCrimes = [];
+  for(let crimeCat in rOUkCrimeCategories){
+    const crimeDomStats = (
+      <li key={crimeCat}> {crimeCat}: {rOUkCrimeCategories[crimeCat]} </li>
 
-  )
-  newCrimes.push(crimeDomStats);
-}
-
-
-  // function newCrimes() {
-  //   const categoryCounts = [];
-  //   for(let category=0; category < rOUkCrimeCategories.length) {
-  //     if (rOUkCrimeCategories.hasOwnProperty(category)) {
-  //        categoryCounts.push({rOUkCrimeCategories[category]})
-  //     }
-  //   }
-  //   return <li>{categoryCounts}</li>
-  // }
-
-
+    )
+    newCrimes.push(crimeDomStats);
+  }
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -278,21 +181,6 @@ for(let crimeCat in rOUkCrimeCategories){
   const isSelected = (place) => selected.indexOf(place) !== -1;
 
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, crimes.length - page * rowsPerPage);
-
-
-
-/*
-var myObject = { 'a': 1, 'b': 2, 'c': 3 };
-
-for (var key in myObject) {
-  if (myObject.hasOwnProperty(key)) {
-    myObject[key] *= 2;
-  }
-}
-
-console.log(myObject);
-// { 'a': 2, 'b': 4, 'c': 6 }
-*/
 
 
   return (
@@ -317,7 +205,6 @@ console.log(myObject);
                   numSelected={selected.length}
                   order={order}
                   orderBy={orderBy}
-
                   onRequestSort={handleRequestSort}
                   rowCount={crimes.length}
                 />
