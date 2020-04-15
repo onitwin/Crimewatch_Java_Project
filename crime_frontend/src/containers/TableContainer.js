@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import CrimeTable from '../components/table/CrimeTable'
+import EnglishCrimeTable from '../components/table/EnglishCrimeTable'
 import Request from '../helpers/request'
 
 
@@ -8,7 +9,8 @@ class TableContainer extends Component{
   constructor(props){
     super(props);
     this.state = {
-      crimes: []
+      crimes: [],
+      englishCrimes: []
     }
   }
 
@@ -16,6 +18,11 @@ class TableContainer extends Component{
   const request = new Request();
   request.get('api/crimes').then((data) => {
     this.setState({crimes: data})
+  })
+
+  const request2 = new Request();
+  request2.get('api/englishCrimes').then((data) => {
+    this.setState({englishCrimes: data})
   })
 }
 
@@ -25,11 +32,12 @@ render(){
 
     <Router>
       <Fragment>
-      <Switch>
-      <Route render={(props) =>{
-      return <CrimeTable crimes={this.state.crimes}/>
-    }} />
-      </Switch>
+ <p> <CrimeTable crimes={this.state.crimes}/>
+        </p>
+       <p>
+      <EnglishCrimeTable englishCrimes={this.state.englishCrimes}/>
+         </p>
+
       </Fragment>
     </Router>
   )

@@ -41,7 +41,7 @@ code {
 }
 
 .centered {
-  height: 30vh; /* Magic here */
+  /* Magic here */
   display: grid;
   /* justify-content: flex-end; */
   justify-content: center;
@@ -105,4 +105,8 @@ span.input-group-addon {
     font-size: 30px;
     font-style: "inconsolata";
 
+}
+
+.form-control {
+  width: 50% !important;
 }

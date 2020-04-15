@@ -45,7 +45,6 @@ function stableSort(array, comparator) {
 
 const headCells = [
   { id: 'featureName', numeric: false, disablePadding: true, label: 'Place' },
-  { id: 'numberOfFrauds', numeric: true, disablePadding: false, label: 'Frauds' },
   { id: 'numberOfHouseBreakIns', numeric: true, disablePadding: false, label: 'House Break-ins' },
   { id: 'numberOfMotorThefts', numeric: true, disablePadding: false, label: 'Motor Thefts' },
   { id: 'numberOfNonSexualCrimesOfViolence', numeric: true, disablePadding: false, label: 'Non-sexual Crimes of Violence' },
@@ -134,7 +133,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CrimeTable(props) {
+export default function EnglishCrimeTable(props) {
   const classes = useStyles();
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('featureName');
@@ -149,7 +148,7 @@ export default function CrimeTable(props) {
     setOrderBy(property);
   };
 
-  const crimes = props.crimes
+  const englishCrimes = props.englishCrimes;
 
 
 
@@ -170,12 +169,12 @@ export default function CrimeTable(props) {
 
   const isSelected = (place) => selected.indexOf(place) !== -1;
 
-  const emptyRows = rowsPerPage - Math.min(rowsPerPage, crimes.length - page * rowsPerPage);
+  const emptyRows = rowsPerPage - Math.min(rowsPerPage, englishCrimes.length - page * rowsPerPage);
 
   return (
     <div className="centered">
     <p>    </p>
-    <h2 className="header">  Scottish Crime Data (2018/2019) </h2>
+    <h2 className="header">  English Crime Data (2018/2019) </h2>
       <Paper className={classes.paper}>
 
         <TableContainer>
@@ -192,10 +191,10 @@ export default function CrimeTable(props) {
               orderBy={orderBy}
 
               onRequestSort={handleRequestSort}
-              rowCount={crimes.length}
+              rowCount={englishCrimes.length}
             />
             <TableBody>
-              {stableSort(crimes, getComparator(order, orderBy))
+              {stableSort(englishCrimes, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((crime, index) => {
                   const isItemSelected = isSelected(crime.featureName);
@@ -214,7 +213,6 @@ export default function CrimeTable(props) {
                       <TableCell component="th" id={labelId} scope="row" padding="none">
                         {crime.featureName}
                       </TableCell>
-                      <TableCell align="right">{crime.numberOfFrauds}</TableCell>
                       <TableCell align="right">{crime.numberOfHouseBreakIns}</TableCell>
                       <TableCell align="right">{crime.numberOfMotorThefts}</TableCell>
                       <TableCell align="right">{crime.numberOfNonSexualCrimesOfViolence}</TableCell>
@@ -235,7 +233,7 @@ export default function CrimeTable(props) {
            rowsPerPageOptions={[5, 10
 , 25]}
            component="div"
-           count={crimes.length}
+           count={englishCrimes.length}
            rowsPerPage={rowsPerPage}
            page={page}
            onChangePage={handleChangePage}
@@ -246,7 +244,6 @@ export default function CrimeTable(props) {
          control={<Switch checked={dense} onChange={handleChangeDense} />}
          label="Dense padding"
        />
-
      </div>
    );
  }
