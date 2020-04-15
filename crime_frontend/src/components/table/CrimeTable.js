@@ -158,7 +158,7 @@ export default function CrimeTable(props) {
   const newCrimes = [];
   for(let crimeCat in rOUkCrimeCategories){
     const crimeDomStats = (
-      <li key={crimeCat}> {crimeCat}: {rOUkCrimeCategories[crimeCat]} </li>
+      <p><li key={crimeCat} className="newCrimesLi"> {crimeCat}: {rOUkCrimeCategories[crimeCat]} </li></p>
 
     )
     newCrimes.push(crimeDomStats);
@@ -186,8 +186,10 @@ export default function CrimeTable(props) {
   return (
 
         <div className="centered">
-          <h2 className="header"> English and Welsh Crime Data </h2>
-          <ul> {newCrimes}</ul>
+            <h2 className="header"> English and Welsh Crime Counts (Newcastle-Upon-Tyne Feb 2020)</h2>
+            <div className="RoUK_Crime_Data">
+            <ul className="newCrimes_ul"> {newCrimes}</ul>
+          </div>
 
         <p>    </p>
         <h2 className="header">  Scottish Crime Data (2018/2019) </h2>

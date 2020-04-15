@@ -134,8 +134,7 @@ render(){
        Only English and Welsh postcodes
      </Form.Text>
    </Form.Group>
-
-   <Form.Group controlId="formDate">
+   <Form.Group controlId="formDate" >
      <Form.Label>Date</Form.Label>
      <Form.Control type="month" placeholder="Date" onChange={this.handleDateChange} value={this.state.date} min='2017-03' max='2020-02'/>
    </Form.Group>
@@ -148,9 +147,12 @@ render(){
 
  <MapComponent crimes={this.state.crimes} postcodeData={this.state.postcode_data}/>
 
+ </div>
+
+
 
 </div>
-</div>
+
   )
 }
 

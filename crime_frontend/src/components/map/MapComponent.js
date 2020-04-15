@@ -12,53 +12,53 @@ const MapComponent =(props)=>{
 
   icons["anti-social-behaviour"] = new Icon({
     iconUrl: "./angry.png",
-    iconSize: [25, 25]
+    iconSize: [30, 30]
   });
 
   icons["bicycle-theft"]= new Icon({
-    iconUrl:"./bike.png",
+    iconUrl:"./biketheft.png",
     iconsSize:[25,25]
   })
 
   icons["burglary"]= new Icon({
-    iconUrl:"./thief2.png",
-    iconsSize:[25,25]
+    iconUrl:"./burglary.png",
+    iconsSize:[5,5]
   })
 
   icons["criminal-damage-arson"]= new Icon({
-    iconUrl:"./fire.png",
+    iconUrl:"./arson.png",
     iconsSize:[25,25]
   })
 
 
   icons["drugs"]= new Icon({
-    iconUrl:"./drugs.png",
+    iconUrl:"./drugsplant.png",
     iconsSize:[25,25]
   })
 
 
   icons["other-theft"]= new Icon({
-    iconUrl:"./thief2.png",
+    iconUrl:"./theft5.png",
     iconsSize:[25,25]
   })
 
 
 
   icons["possession-of-weapons"]= new Icon({
-    iconUrl:"./knife.png",
+    iconUrl:"./gun.png",
     iconsSize:[25,25]
   })
 
 
 
   icons["public-order"]= new Icon({
-    iconUrl:"./antiSocial.png",
-    iconsSize:[25,25]
+    iconUrl:"./swearing.png",
+    iconsSize:[20,20]
   })
 
 
   icons["robbery"]= new Icon({
-    iconUrl:"./crowbar.png",
+    iconUrl:"./robbery.png",
     iconsSize:[25,25]
   })
 
@@ -83,16 +83,14 @@ const MapComponent =(props)=>{
 
 
   icons["violent-crime"]= new Icon({
-    iconUrl:"./violentCrime.png",
+    iconUrl:"./punch.png",
     iconsSize:[25,25]
   })
 
   icons["other-crime"]= new Icon({
-    iconUrl:"./otherCrime.png",
+    iconUrl:"./handcuffs.png",
     iconsSize:[25,25]
   })
-
-
 
 
 

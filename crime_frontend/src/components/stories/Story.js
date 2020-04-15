@@ -13,6 +13,9 @@ const Story = (props) =>{
     <p>
     {' '}
     {props.story.description}{' '}
+    </p>
+    <p>
+  <a href={props.story.url}> Click to view article </a>
      </p>
         </blockquote>
     <footer className="blockquote-footer" text='white'>

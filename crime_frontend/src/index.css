@@ -84,14 +84,9 @@ code {
 }
 
 .leaflet-container {
-  width: 80%;
-  height: 50vh;
+  width: 70%;
+  height: 60vh;
   border:10px double black;
-}
-
-#MapContainer{
-  align-items: center;
-  text-align: center;
 }
 
 
@@ -110,8 +105,47 @@ span.input-group-addon {
 
 }
 
+
+.formDiv{
+  width:300;
+}
+
 .form-control {
-  width: 100% !important;
+  width: 80% !important;
+}
+
+
+.formAndMap{
+  display: flex;
+}
+
+.headTitle{
+  font-family:'Black Ops One', cursive;;
+  color: gold;
+}
+
+.RoUK_Crime_Data {
+  background-color: white;
+  color: black;
+  font-family: 'Inconsolata';
+}
+
+.newCrimes_ul{
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 0.875rem;
+  text-align:justify;
+  list-style-type: none;
+  min-width: 600px;
+  max-width: 797px;
+  box-sizing: border-box;
+}
+
+
+.newCrimesLi{
+  padding: 15px;
+  border-bottom: 1px solid rgba(224, 224, 224, 1);
+
+
 }
 
 .SafetyTipListItem-img {
@@ -121,5 +155,4 @@ span.input-group-addon {
   max-width: 800px;
   display: flex;
   align-self: center;
-
 }

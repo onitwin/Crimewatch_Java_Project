@@ -7,13 +7,13 @@ const NavBar = (props) => {
     <Navbar bg="dark" variant="dark" >
     <Navbar.Brand>
      <img
-       src='/images.png'
+       src='/largeHandcuffs.png'
        width="100"
        height="100"
       className="d-inline-block align-top"
        alt=" "></img> {' '}
-        Crime Aware
      </Navbar.Brand>
+     <h1 className="headTitle">Crime Aware</h1>
    <Nav >
      <Nav.Link href="/home">Home     </Nav.Link>
      <Nav.Link href="/crimes">   Statistics</Nav.Link>

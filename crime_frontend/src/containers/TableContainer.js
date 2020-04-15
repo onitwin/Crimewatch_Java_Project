@@ -47,7 +47,7 @@ class TableContainer extends Component{
     const lng2 = '0.238';
     const lat3 = '52.130';
     const lng3 = '0.478';
-    const date = '2018-01'
+    const date = '2020-02'
     const url = `https://data.police.uk/api/crimes-street/all-crime?poly=${lat1},${lng1}:${lat2},${lng2}:${lat3},${lng3}&date=${date}`
     fetch(url)
        .then(res => res.json())
