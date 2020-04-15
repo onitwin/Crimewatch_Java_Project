@@ -5,10 +5,7 @@ import MapMarker from "./MapMarker";
 import {Icon} from "leaflet"
 
 
-const robber= new Icon({
-  iconUrl:"./thief2.png",
-  iconSize:[25,25]
-});
+
 
 const asbo= new Icon({
   iconUrl:"./angry.png",
@@ -16,9 +13,10 @@ const asbo= new Icon({
 });
 
 
-
-
-
+const robber= new Icon({
+  iconUrl:"./thief2.png",
+  iconSize:[25,25]
+});
 
 
 const MapComponent =(props)=>{
@@ -107,16 +105,6 @@ const MapComponent =(props)=>{
     iconUrl:"./otherCrime.png",
     iconsSize:[25,25]
   })
-
-
-
-
-debugger
-
-
-
-
-
 
 
 
