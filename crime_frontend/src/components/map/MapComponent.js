@@ -1,18 +1,10 @@
 
 import React ,{Component} from 'react';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
-import MapMarker from "./MapMarker";
 import {Icon} from "leaflet"
 
 
-const robber= new Icon({
-  iconUrl:"./thief2.png",
-  iconSize:[25,25]
-});
-
 const MapComponent =(props)=>{
-
-
 
 
   const icons={
@@ -29,7 +21,7 @@ const MapComponent =(props)=>{
   })
 
   icons["burglary"]= new Icon({
-    iconUrl:"./robbery.png",
+    iconUrl:"./thief2.png",
     iconsSize:[25,25]
   })
 
@@ -41,7 +33,7 @@ const MapComponent =(props)=>{
 
   icons["drugs"]= new Icon({
     iconUrl:"./drugs.png",
-    iconsSize:[10,10]
+    iconsSize:[25,25]
   })
 
 
@@ -139,7 +131,7 @@ const MapComponent =(props)=>{
     />
 
 
-    <Marker position={position} draggable="true" icon={robber}> </Marker>
+
 
 
     {leafletMarkers}
