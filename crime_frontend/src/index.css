@@ -41,7 +41,7 @@ code {
 }
 
 .centered {
-  height: 30vh; /* Magic here */
+  /* Magic here */
   display: grid;
   /* justify-content: flex-end; */
   justify-content: center;

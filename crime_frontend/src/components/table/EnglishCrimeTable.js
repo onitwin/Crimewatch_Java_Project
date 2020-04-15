@@ -45,11 +45,10 @@ function stableSort(array, comparator) {
 
 const headCells = [
   { id: 'featureName', numeric: false, disablePadding: true, label: 'Place' },
-  { id: 'numberOfFrauds', numeric: true, disablePadding: false, label: 'Frauds' },
   { id: 'numberOfHouseBreakIns', numeric: true, disablePadding: false, label: 'House Break-ins' },
   { id: 'numberOfMotorThefts', numeric: true, disablePadding: false, label: 'Motor Thefts' },
   { id: 'numberOfNonSexualCrimesOfViolence', numeric: true, disablePadding: false, label: 'Non-sexual Crimes of Violence' },
-  { id: 'numberOfSexualCrimes', numeric: true, disablePadding: false, label: 'Sexual Crimes' },
+    { id: 'numberOfSexualCrimes', numeric: true, disablePadding: false, label: 'Sexual Crimes' },
 ];
 
 
@@ -64,9 +63,9 @@ function EnhancedTableHead(props) {
   return (
     <TableHead>
       <TableRow>
-      <TableCell>
-        <p> </p>
-      </TableCell>
+        <TableCell >
+          <p>   </p>
+        </TableCell>
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
@@ -134,9 +133,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-
-export default function CrimeTable(props) {
+export default function EnglishCrimeTable(props) {
   const classes = useStyles();
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('featureName');
@@ -145,24 +142,16 @@ export default function CrimeTable(props) {
   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
-
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
     setOrderBy(property);
   };
 
-  const crimes = props.crimes
-  const rOUkCrimeCategories = props.rOUkCrimes
+  const englishCrimes = props.englishCrimes;
 
-  const newCrimes = [];
-  for(let crimeCat in rOUkCrimeCategories){
-    const crimeDomStats = (
-      <li key={crimeCat}> {crimeCat}: {rOUkCrimeCategories[crimeCat]} </li>
 
-    )
-    newCrimes.push(crimeDomStats);
-  }
+
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -180,86 +169,81 @@ export default function CrimeTable(props) {
 
   const isSelected = (place) => selected.indexOf(place) !== -1;
 
-  const emptyRows = rowsPerPage - Math.min(rowsPerPage, crimes.length - page * rowsPerPage);
-
+  const emptyRows = rowsPerPage - Math.min(rowsPerPage, englishCrimes.length - page * rowsPerPage);
 
   return (
+    <div className="centered">
+    <p>    </p>
+    <h2 className="header">  English Crime Data (2018/2019) </h2>
+      <Paper className={classes.paper}>
 
-        <div className="centered">
-          <h2 className="header"> English and Welsh Crime Data </h2>
-          <ul> {newCrimes}</ul>
+        <TableContainer>
+          <Table
+            className={classes.table}
+            aria-labelledby="tableTitle"
+            size={dense ? 'small' : 'medium'}
+            aria-label="enhanced table"
+          >
+            <EnhancedTableHead
+              classes={classes}
+              numSelected={selected.length}
+              order={order}
+              orderBy={orderBy}
 
-        <p>    </p>
-        <h2 className="header">  Scottish Crime Data (2018/2019) </h2>
-          <Paper className={classes.paper}>
+              onRequestSort={handleRequestSort}
+              rowCount={englishCrimes.length}
+            />
+            <TableBody>
+              {stableSort(englishCrimes, getComparator(order, orderBy))
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((crime, index) => {
+                  const isItemSelected = isSelected(crime.featureName);
+                  const labelId = `enhanced-table-checkbox-${index}`;
 
-            <TableContainer>
-              <Table
-                className={classes.table}
-                aria-labelledby="tableTitle"
-                size={dense ? 'small' : 'medium'}
-                aria-label="enhanced table"
-              >
-                <EnhancedTableHead
-                  classes={classes}
-                  numSelected={selected.length}
-                  order={order}
-                  orderBy={orderBy}
-                  onRequestSort={handleRequestSort}
-                  rowCount={crimes.length}
-                />
-                <TableBody>
-                  {stableSort(crimes, getComparator(order, orderBy))
-                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                    .map((crime, index) => {
-                      const isItemSelected = isSelected(crime.featureName);
-                      const labelId = `enhanced-table-checkbox-${index}`;
+                  return (
+                    <TableRow
+                      hover
 
-                      return (
-                        <TableRow
-                          hover
+                      key={crime.featureName}
+                      selected={isItemSelected}
+                    >
+                      <TableCell >
+                        <p> </p>
+                      </TableCell>
+                      <TableCell component="th" id={labelId} scope="row" padding="none">
+                        {crime.featureName}
+                      </TableCell>
+                      <TableCell align="right">{crime.numberOfHouseBreakIns}</TableCell>
+                      <TableCell align="right">{crime.numberOfMotorThefts}</TableCell>
+                      <TableCell align="right">{crime.numberOfNonSexualCrimesOfViolence}</TableCell>
+                     <TableCell align="right">{crime.numberOfSexualCrimes}</TableCell>
 
-                          key={crime.featureName}
-                          selected={isItemSelected}
-                        >
-                          <TableCell >
-                            <p> </p>
-                          </TableCell>
-                          <TableCell component="th" id={labelId} scope="row" padding="none">
-                            {crime.featureName}
-                          </TableCell>
-                          <TableCell align="right">{crime.numberOfFrauds}</TableCell>
-                          <TableCell align="right">{crime.numberOfHouseBreakIns}</TableCell>
-                          <TableCell align="right">{crime.numberOfMotorThefts}</TableCell>
-                          <TableCell align="right">{crime.numberOfNonSexualCrimesOfViolence}</TableCell>
-                         <TableCell align="right">{crime.numberOfSexualCrimes}</TableCell>
-
-                        </TableRow>
-                      );
-                    })}
-                  {emptyRows > 0 && (
-                    <TableRow style={{ height: (dense ? 33 : 53) * emptyRows }}>
-                      <TableCell colSpan={6} />
                     </TableRow>
-                  )}
-                </TableBody>
-              </Table>
-             </TableContainer>
-             <TablePagination
-               rowsPerPageOptions={[5, 10
-    , 25]}
-               component="div"
-               count={crimes.length}
-               rowsPerPage={rowsPerPage}
-               page={page}
-               onChangePage={handleChangePage}
-               onChangeRowsPerPage={handleChangeRowsPerPage}
-             />
-           </Paper>
-           <FormControlLabel
-             control={<Switch checked={dense} onChange={handleChangeDense} />}
-             label="Dense padding"
-           />
-       </div>
+                  );
+                })}
+              {emptyRows > 0 && (
+                <TableRow style={{ height: (dense ? 33 : 53) * emptyRows }}>
+                  <TableCell colSpan={6} />
+                </TableRow>
+              )}
+            </TableBody>
+          </Table>
+         </TableContainer>
+         <TablePagination
+           rowsPerPageOptions={[5, 10
+, 25]}
+           component="div"
+           count={englishCrimes.length}
+           rowsPerPage={rowsPerPage}
+           page={page}
+           onChangePage={handleChangePage}
+           onChangeRowsPerPage={handleChangeRowsPerPage}
+         />
+       </Paper>
+       <FormControlLabel
+         control={<Switch checked={dense} onChange={handleChangeDense} />}
+         label="Dense padding"
+       />
+     </div>
    );
  }
