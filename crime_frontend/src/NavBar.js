@@ -16,7 +16,7 @@ const NavBar = (props) => {
      <h1 className="headTitle">Crime Aware</h1>
    <Nav >
      <Nav.Link href="/home">Home     </Nav.Link>
-     <Nav.Link href="/crimes">   Scots</Nav.Link>
+     <Nav.Link href="/crimes">   Statistics</Nav.Link>
         <Nav.Link href="/news">News</Nav.Link>
      <Nav.Link href="/safetyTips">Tips</Nav.Link>
    </Nav>

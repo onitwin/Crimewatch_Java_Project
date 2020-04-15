@@ -66,6 +66,9 @@ code {
 
 }
 
+.container{
+  display: flex;
+}
 .card-deck{
     margin: 10px;
 }
@@ -141,4 +144,15 @@ span.input-group-addon {
 .newCrimesLi{
   padding: 15px;
   border-bottom: 1px solid rgba(224, 224, 224, 1);
+
+
+}
+
+.SafetyTipListItem-img {
+  height: auto;
+  max-height: 250px;
+  width: auto;
+  max-width: 800px;
+  display: flex;
+  align-self: center;
 }

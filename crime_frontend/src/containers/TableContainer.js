@@ -62,12 +62,11 @@ class TableContainer extends Component{
 
     <Router>
       <Fragment>
-      <p>
-     <EnglishCrimeTable englishCrimes={this.state.englishCrimes}/>
-        </p>
  <p> <CrimeTable crimes={this.state.crimes} rOUkCrimes={this.state.rOUkUniqueCrimes}/>
         </p>
-
+       <p>
+      <EnglishCrimeTable englishCrimes={this.state.englishCrimes}/>
+         </p>
 
       </Fragment>
     </Router>

@@ -134,7 +134,7 @@ public class DataLoader implements ApplicationRunner {
 
 
 
-        SafetyTip tip1 = new SafetyTip("Be prepared", "Plan your route in advance. Carry a charged mobile phone and some cash, and tell someone where you’re going.", Type.VIOLENCE, "");
+        SafetyTip tip1 = new SafetyTip("Be prepared", "Plan your route in advance. Carry a charged mobile phone and some cash, and tell someone where you’re going.", Type.VIOLENCE, "./bePrepared.png");
         safetyTipRepository.save(tip1);
 
         SafetyTip tip2 = new SafetyTip("Be assertive", "From the moment you step out onto the street in the morning, look assertive and act and walk with confidence. This will always make you appear in control and much less vulnerable.",Type.VIOLENCE, "");
@@ -143,20 +143,20 @@ public class DataLoader implements ApplicationRunner {
         SafetyTip tip3 = new SafetyTip("Be aware", "Using a mobile phone, whether making a call or texting, wearing a hood or listening to loud music, all affect your awareness of your surroundings.",Type.VIOLENCE, "");
         safetyTipRepository.save(tip3);
 
-        SafetyTip tip4 = new SafetyTip("Hide it", "Keep your valuables including your mobile phone, other devices and jewellery, hidden. Remember, out of sight, out of mind.",Type.VIOLENCE, "");
+        SafetyTip tip4 = new SafetyTip("Hide it", "Keep your valuables including your mobile phone, other devices and jewellery, hidden. Remember, out of sight, out of mind.",Type.VIOLENCE, "./hideIt.jpg");
         safetyTipRepository.save(tip4);
 
         SafetyTip tip5 = new SafetyTip("Go against the flow", "When walking on the pavement, always face oncoming traffic, as it will make it far more difficult for thieves on two wheelers to ride up from behind and snatch your property. But still also be aware of anyone approaching from ahead of you.",Type.VIOLENCE, "");
         safetyTipRepository.save(tip5);
 
-        SafetyTip tip6 = new SafetyTip("Trust your instincts", "Try to avoid walking alone at night in places such as parks and side streets or any unfamiliar environment. If you do have to walk, stick to busy places where is a lot of activity CCTV and good lighting.",Type.VIOLENCE, "");
+        SafetyTip tip6 = new SafetyTip("Trust your instincts", "Try to avoid walking alone at night in places such as parks and side streets or any unfamiliar environment. If you do have to walk, stick to busy places where is a lot of activity CCTV and good lighting.",Type.VIOLENCE, "./awareness.jpg");
         safetyTipRepository.save(tip6);
         SafetyTip tip7 = new SafetyTip("Make a plan", "And stick to it. First off, discuss with friends what to do if something were to go wrong on your night out together, eg if one of you has too much to drink or you were to get separated. Agree on a backup plan and look out for one another.",Type.VIOLENCE, "");
         safetyTipRepository.save(tip7);
         SafetyTip tip8 = new SafetyTip("Be vigilant", "Alcohol and drugs will reduce reaction times and inhibitions, which makes it harder to assess risks and decide how to deal with them. So keep an eye on how much you drink and never let your glass or bottle out of your sight.",Type.VIOLENCE, "");
         safetyTipRepository.save(tip8);
 
-        SafetyTip tip9 = new SafetyTip("Safety in numbers", "Try to travel with people you know and, where possible, stick to routes and forms of transport that others are using and avoid shortcuts in lonely places.",Type.VIOLENCE, "");
+        SafetyTip tip9 = new SafetyTip("Safety in numbers", "Try to travel with people you know and, where possible, stick to routes and forms of transport that others are using and avoid shortcuts in lonely places.",Type.VIOLENCE, "./group.jpg");
         safetyTipRepository.save(tip9);
 
 

@@ -26,7 +26,8 @@ const SafetyTipList = (props) => {
     <div >
     <h1 className="header"> Tips To Say Safe </h1>
      <Container >
-    <Card bg='dark' text='white'   cellHeight='auto'  >
+    <Card bg='dark' text='white' cellWidth='400px'  cellHeight='auto'  >
+
      {safetyTips}
 
      </Card>
