@@ -135,3 +135,9 @@ span.input-group-addon {
   max-width: 797px;
   box-sizing: border-box;
 }
+
+
+.newCrimesLi{
+  padding: 15px;
+  border-bottom: 1px solid rgba(224, 224, 224, 1);
+}
