@@ -18,47 +18,13 @@ class TableContainer extends Component{
 
 
   uniqueCategoryCounter(roukcrimes){
-    //scroll through each member of roukcrimes and count the occurences of each category name:
 
-      // ///WORKS BUT ONLY RETURNS UNIQUE NAMES DOESN'T GIVE COUNTS
-      // let uniqueROUkCrimeCategories = [];
-      // roukcrimes.forEach((item) => {
-      //   if(uniqueROUkCrimeCategories.indexOf(item.category) < 0) {
-      //     uniqueROUkCrimeCategories.push(item.category);
-      //   }
-      //
-      // });
-
-      //
-      // assignKey(obj, key) {
-      //   typeof obj[key] === 'undefined' ? obj[key] = 1 : obj[key]++;
-      // }
-
-      const uniqueROUkCrimeCategories = [];
-
+      let uniqueROUkCrimeCategories = {};
       roukcrimes.forEach((item) => {
-      // for(let itemCount = 0; itemCount < item.length; itemCount++){
         typeof uniqueROUkCrimeCategories[item.category] === 'undefined' ? uniqueROUkCrimeCategories[item.category] = 1 : uniqueROUkCrimeCategories[item.category]++;
-
-        // debugger;
-        // let uniqCatArrayObject = {item.category,1}
-        // if(uniqueROUkCrimeCategories.indexOf(item.category) < 0) {
-        //
-        //   uniqueROUkCrimeCategories.push(uniqCatArrayObject);
-        // }else{
-        //   //now to increment the count
-        //    uniqueROUkCrimeCategories[itemCount+1].count ++;/////////////////////DONT KNOW IF THIS WILL WORK
-        // }
-      //
-      //     let i = uniqueROUkCrimeCategories.findIndex(existingCat => extistingCat.itemCategory == item.category);
-      //     if(i <= -1){
-      //       uniqueROUkCrimeCategories.push({item.category, 1})
-      //     } else{
-      //       // item already exists, now increment count
-      //
-      //     }
-      //
       });
+
+
 
 
       console.log(uniqueROUkCrimeCategories);
@@ -83,11 +49,6 @@ class TableContainer extends Component{
     request.get('api/crimes').then((data) => {
       this.setState({crimes: data})
     })
-
-    // const lat = '53.794042';
-    // const lng = '-1.586510';
-    // const date = '2020-01'
-    // const url = `https://data.police.uk/api/crimes-street/all-crimes?lat=${lat}&lng=${lng}&date=${date}`
 
     const lat1 = '52.268';
     const lng1 = '0.543';

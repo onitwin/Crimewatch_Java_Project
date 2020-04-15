@@ -67,7 +67,6 @@ const rOUkHeadCells = [
 
 
 
-
 // function createData(name, calories, fat, carbs, protein) {
 //   return { name, calories, fat, carbs, protein };
 // }
@@ -202,6 +201,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
 export default function CrimeTable(props) {
   const classes = useStyles();
   const [order, setOrder] = React.useState('asc');
@@ -210,6 +211,7 @@ export default function CrimeTable(props) {
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
+
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
@@ -220,7 +222,42 @@ export default function CrimeTable(props) {
   const crimes = props.crimes
   // const rOUkCrimes = props.rOUkCrimes
   const rOUkCrimeCategories = props.rOUkCrimes
-  console.log(props);
+  console.log(rOUkCrimeCategories);
+
+ // const newCrimes = rOUkCrimeCategories.map((crimeCat, count) =>{
+ //    return <p>{crimeCat}: {count}</p>
+ //    // return <li>{crime.key}: {crime.value} </li>
+ //    // return <p>(key, value)</p>;
+ //
+ //  // const newCrimes =  rOUkCrimeCategories.forEach(function(obj, index){
+ //  //     console.log(index);
+ //  //     for (var key in obj){
+ //  //       console.log(key, obj[key]);
+ //  //     }
+ //  //   });
+ //    // for (let [key, value] of Object.entries(rOUkCrimeCategories)) {
+ //    //   console.log(key, value);
+ //    // }
+ //  })
+const newCrimes = [];
+for(let crimeCat in rOUkCrimeCategories){
+  const crimeDomStats = (
+    <li key={crimeCat}> {crimeCat}: {rOUkCrimeCategories[crimeCat]} </li>
+
+  )
+  newCrimes.push(crimeDomStats);
+}
+
+
+  // function newCrimes() {
+  //   const categoryCounts = [];
+  //   for(let category=0; category < rOUkCrimeCategories.length) {
+  //     if (rOUkCrimeCategories.hasOwnProperty(category)) {
+  //        categoryCounts.push({rOUkCrimeCategories[category]})
+  //     }
+  //   }
+  //   return <li>{categoryCounts}</li>
+  // }
 
 
 
@@ -242,15 +279,27 @@ export default function CrimeTable(props) {
 
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, crimes.length - page * rowsPerPage);
 
-  const newCrimes = rOUkCrimeCategories.map((crime) =>{
-    return <p>{crime}</p>
-  })
+
+
+/*
+var myObject = { 'a': 1, 'b': 2, 'c': 3 };
+
+for (var key in myObject) {
+  if (myObject.hasOwnProperty(key)) {
+    myObject[key] *= 2;
+  }
+}
+
+console.log(myObject);
+// { 'a': 2, 'b': 4, 'c': 6 }
+*/
+
 
   return (
 
         <div className="centered">
           <h2 className="header"> English and Welsh Crime Data </h2>
-          <p> {newCrimes}</p>
+          <ul> {newCrimes}</ul>
 
         <p>    </p>
         <h2 className="header">  Scottish Crime Data (2018/2019) </h2>
