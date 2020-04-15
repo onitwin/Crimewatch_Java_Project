@@ -10,17 +10,6 @@ const robber= new Icon({
   iconSize:[25,25]
 });
 
-const asbo= new Icon({
-  iconUrl:"./angry.png",
-  iconSize:[25,25]
-});
-
-
-
-
-
-
-
 const MapComponent =(props)=>{
 
 
@@ -29,7 +18,10 @@ const MapComponent =(props)=>{
   const icons={
   };
 
-  icons["anti-social-behavior"]= asbo;
+  icons["anti-social-behaviour"] = new Icon({
+    iconUrl: "./angry.png",
+    iconSize: [25, 25]
+  });
 
   icons["bicycle-theft"]= new Icon({
     iconUrl:"./bike.png",
@@ -111,21 +103,16 @@ const MapComponent =(props)=>{
 
 
 
-debugger
-
-
-
-
 
 
 
 
   const position = [props.postcodeData.latitude,props.postcodeData.longitude]
 
-
+  debugger;
   const leafletMarkers=props.crimes.map((crime)=>(
     <Marker className={crime.category} key={`crime_${crime.id}`}position={[(crime.location.latitude),(crime.location.longitude)]}
-    draggable="true" icon={robber}>
+    draggable="true" icon={icons[crime.category]}>
     <Popup>
     <p><strong>Crime Type:</strong></p>
     <div>
