@@ -115,7 +115,8 @@ render(){
   </p>
 
  <p> For crimes in your area in  <strong>England</strong> and<strong> Wales</strong> please enter the postcode and date you'd like to search </p>
-
+ <div className="formAndMap">
+<div className="formDiv">
  <Form onSubmit={this.handleSubmit}  >
    <Form.Group controlId="formPostcode">
      <Form.Label >Postcode</Form.Label>
@@ -133,10 +134,13 @@ render(){
      Submit
    </Button>
  </Form>
-
-<div className="mapDiv">
- <MapComponent crimes={this.state.crimes} postcodeData={this.state.postcode_data}/>
  </div>
+
+
+ <MapComponent crimes={this.state.crimes} postcodeData={this.state.postcode_data}/>
+
+ </div>
+
 
 
 </div>

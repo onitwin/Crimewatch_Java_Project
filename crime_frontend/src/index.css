@@ -81,8 +81,8 @@ code {
 }
 
 .leaflet-container {
-  width: 50%;
-  height: 50vh;
+  width: 70%;
+  height: 60vh;
   border:10px double black;
 }
 
@@ -102,6 +102,20 @@ span.input-group-addon {
 
 }
 
+
+.formDiv{
+  width:300;
+}
+
 .form-control {
-  width: 25% !important;
+  width: 80% !important;
+}
+
+
+.formAndMap{
+  display: flex;
+}
+
+.headTitle{
+  font-family: Roboto mono;
 }
