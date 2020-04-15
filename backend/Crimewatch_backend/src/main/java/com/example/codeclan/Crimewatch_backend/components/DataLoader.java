@@ -1,13 +1,16 @@
 package com.example.codeclan.Crimewatch_backend.components;
 
 import com.example.codeclan.Crimewatch_backend.models.Crime;
+import com.example.codeclan.Crimewatch_backend.models.EnglishCrime;
 import com.example.codeclan.Crimewatch_backend.models.SafetyTip;
 import com.example.codeclan.Crimewatch_backend.models.Type;
 import com.example.codeclan.Crimewatch_backend.repositories.CrimeRepository;
+import com.example.codeclan.Crimewatch_backend.repositories.EnglishCrimeRepository;
 import com.example.codeclan.Crimewatch_backend.repositories.SafetyTipRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.stereotype.Component;
 
 
@@ -20,6 +23,9 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     SafetyTipRepository safetyTipRepository;
+
+    @Autowired
+    EnglishCrimeRepository englishCrimeRepository;
 
     public DataLoader(){
 
@@ -95,6 +101,38 @@ public class DataLoader implements ApplicationRunner {
         crimeRepository.save(westDunbartonshire);
         Crime westLothian = new Crime("West Lothian", 229, 387, 271, 511, 111);
         crimeRepository.save(westLothian);
+
+        EnglishCrime englandAndWales = new EnglishCrime("England And Wales", 1630163, 154229, 265922, 4441352);
+        englishCrimeRepository.save(englandAndWales);
+
+        EnglishCrime england = new EnglishCrime("England", 1519302, 1519302, 255709, 425368);
+        englishCrimeRepository.save(england);
+
+        EnglishCrime northEast = new EnglishCrime("North East", 95899, 8497, 11711, 15707);
+        englishCrimeRepository.save(northEast);
+
+        EnglishCrime northWest = new EnglishCrime("North West", 155722, 12705, 20111, 24679);
+        englishCrimeRepository.save(northWest);
+        EnglishCrime yorkshireAndTheHumber = new EnglishCrime("Yorkshire and The Humber", 205645, 17580, 36881, 44239);
+        englishCrimeRepository.save(yorkshireAndTheHumber);
+
+        EnglishCrime eastMidlands = new EnglishCrime("East Midlands", 130159, 13457, 21275, 34651);
+        englishCrimeRepository.save(eastMidlands);
+        EnglishCrime westMidlands = new EnglishCrime("West Midlands ", 161581, 15726, 31769, 50169);
+        englishCrimeRepository.save(westMidlands);
+        EnglishCrime east = new EnglishCrime("East", 169486, 16505, 24519, 44540);
+        englishCrimeRepository.save(east);
+        EnglishCrime london = new EnglishCrime("London", 220422, 20082, 60406, 125152);
+        englishCrimeRepository.save(london);
+        EnglishCrime southEast = new EnglishCrime("South East", 249770, 25029, 33197, 59878);
+        englishCrimeRepository.save(southEast);
+        EnglishCrime southWest = new EnglishCrime("South West", 130618, 13528, 15840, 26353);
+        englishCrimeRepository.save(southWest);
+
+        EnglishCrime wales = new EnglishCrime("Wales", 98453, 9254, 10212, 14526);
+        englishCrimeRepository.save(wales);
+
+
 
         SafetyTip tip1 = new SafetyTip("Be prepared", "Plan your route in advance. Carry a charged mobile phone and some cash, and tell someone where you’re going.", Type.VIOLENCE, "");
         safetyTipRepository.save(tip1);

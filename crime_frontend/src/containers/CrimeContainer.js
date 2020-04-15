@@ -119,12 +119,11 @@ render(){
  <Form onSubmit={this.handleSubmit}  >
    <Form.Group controlId="formPostcode">
      <Form.Label >Postcode</Form.Label>
-     <Form.Control type="postcode" placeholder="Postcode"onChange={this.handlePostcodeChange} value={this.state.postcode} />
+     <Form.Control maxWidth="25%" type="postcode" placeholder="Postcode"onChange={this.handlePostcodeChange} value={this.state.postcode} />
      <Form.Text >
        Only English and Welsh postcodes
      </Form.Text>
    </Form.Group>
-
    <Form.Group controlId="formDate">
      <Form.Label>Date</Form.Label>
      <Form.Control type="month" placeholder="Date" onChange={this.handleDateChange} value={this.state.date} min='2017-03' max='2020-02'/>

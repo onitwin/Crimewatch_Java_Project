@@ -1,78 +1,64 @@
 
 import React ,{Component} from 'react';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
-import MapMarker from "./MapMarker";
 import {Icon} from "leaflet"
-
-
-
-
-const asbo= new Icon({
-  iconUrl:"./angry.png",
-  iconSize:[25,25]
-});
-
-
-const robber= new Icon({
-  iconUrl:"./thief2.png",
-  iconSize:[25,25]
-});
 
 
 const MapComponent =(props)=>{
 
 
-
-
   const icons={
   };
 
-  icons["anti-social-behavior"]= asbo;
+  icons["anti-social-behaviour"] = new Icon({
+    iconUrl: "./angry.png",
+    iconSize: [30, 30]
+  });
 
   icons["bicycle-theft"]= new Icon({
-    iconUrl:"./bike.png",
+    iconUrl:"./biketheft.png",
     iconsSize:[25,25]
   })
 
   icons["burglary"]= new Icon({
-    iconUrl:"./robbery.png",
-    iconsSize:[25,25]
+    iconUrl:"./burglary.png",
+    iconsSize:[5,5]
   })
 
   icons["criminal-damage-arson"]= new Icon({
-    iconUrl:"./fire.png",
+    iconUrl:"./arson.png",
     iconsSize:[25,25]
   })
 
 
   icons["drugs"]= new Icon({
-    iconUrl:"./drugs.png",
-    iconsSize:[10,10]
+    iconUrl:"./drugsplant.png",
+    iconsSize:[25,25]
   })
 
 
   icons["other-theft"]= new Icon({
-    iconUrl:"./thief2.png",
+    iconUrl:"./theft5.png",
     iconsSize:[25,25]
   })
 
 
 
   icons["possession-of-weapons"]= new Icon({
-    iconUrl:"./knife.png",
+    iconUrl:"./gun.png",
     iconsSize:[25,25]
   })
 
 
 
   icons["public-order"]= new Icon({
-    iconUrl:"./antiSocial.png",
-    iconsSize:[25,25]
+    iconUrl:"./swearing.png",
+    iconsSize:[20,20]
   })
 
 
   icons["robbery"]= new Icon({
-    iconUrl:"./crowbar.png",
+    iconUrl:"./robbery.png",
     iconsSize:[25,25]
   })
 
@@ -97,12 +83,12 @@ const MapComponent =(props)=>{
 
 
   icons["violent-crime"]= new Icon({
-    iconUrl:"./violentCrime.png",
+    iconUrl:"./punch.png",
     iconsSize:[25,25]
   })
 
   icons["other-crime"]= new Icon({
-    iconUrl:"./otherCrime.png",
+    iconUrl:"./handcuffs.png",
     iconsSize:[25,25]
   })
 
@@ -110,10 +96,10 @@ const MapComponent =(props)=>{
 
   const position = [props.postcodeData.latitude,props.postcodeData.longitude]
 
-
+  debugger;
   const leafletMarkers=props.crimes.map((crime)=>(
     <Marker className={crime.category} key={`crime_${crime.id}`}position={[(crime.location.latitude),(crime.location.longitude)]}
-    draggable="true" icon={robber}>
+    draggable="true" icon={icons[crime.category]}>
     <Popup>
     <p><strong>Crime Type:</strong></p>
     <div>
@@ -140,7 +126,7 @@ const MapComponent =(props)=>{
     />
 
 
-    <Marker position={position} draggable="true" icon={robber}> </Marker>
+
 
 
     {leafletMarkers}

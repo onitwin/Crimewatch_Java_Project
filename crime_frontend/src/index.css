@@ -41,7 +41,7 @@ code {
 }
 
 .centered {
-  height: 30vh; /* Magic here */
+  /* Magic here */
   display: grid;
   /* justify-content: flex-end; */
   justify-content: center;
@@ -81,14 +81,9 @@ code {
 }
 
 .leaflet-container {
-  width: 80%;
+  width: 50%;
   height: 50vh;
   border:10px double black;
-}
-
-#MapContainer{
-  align-items: center;
-  text-align: center;
 }
 
 
@@ -105,4 +100,8 @@ span.input-group-addon {
     font-size: 30px;
     font-style: "inconsolata";
 
+}
+
+.form-control {
+  width: 25% !important;
 }
