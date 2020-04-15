@@ -16,7 +16,7 @@ const NavBar = (props) => {
      </Navbar.Brand>
    <Nav >
      <Nav.Link href="/home">Home     </Nav.Link>
-     <Nav.Link href="/crimes">   Scots</Nav.Link>
+     <Nav.Link href="/crimes">   Statistics</Nav.Link>
         <Nav.Link href="/news">News</Nav.Link>
      <Nav.Link href="/safetyTips">Tips</Nav.Link>
    </Nav>

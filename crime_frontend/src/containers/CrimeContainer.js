@@ -16,6 +16,7 @@ class CrimeContainer extends Component{
       postcode: "",
       postcode_data:{longitude:-4.251433,latitude:55.860916},
       date: "",
+      errorMessage: ""
 
 
 
@@ -42,14 +43,22 @@ componentDidMount(){
 
 async  fetchPostcodeData(postcode){
   const url = "http://api.postcodes.io/postcodes/"+postcode
-   await fetch(url).then(data => data.json()).then((data) => {
-    this.setState({postcode_data: data.result})
-  })
+   await fetch(url).then(data => data.json()).catch(function (err) {
+		console.warn('Could not find a post');
+
+	}).then((data) => {
+   this.setState({postcode_data: data.result})
+ })
+
   this.fetchCrimeData(this.state.postcode_data)
+
 }
 
  fetchCrimeData(postcode){
-
+   if(!postcode){
+     alert("Postcode entered invalid")
+     this.setState({postcode_data:{longitude:-4.251433,latitude:55.860916}})
+   }
   const url = ("https://data.police.uk/api/crimes-street/all-crime?lat="+postcode.latitude+"&lng="+postcode.longitude+"&date="+this.state.date)
    fetch(url).then(data => data.json()).then((data) =>{
    this.setState({crimes: data})})
@@ -109,17 +118,18 @@ render(){
 
 
   return(
-<div  className="container">
+<div>
   <p>
 
   </p>
 
  <p> For crimes in your area in  <strong>England</strong> and<strong> Wales</strong> please enter the postcode and date you'd like to search </p>
-
+ <div  className="container">
+ <div>
  <Form onSubmit={this.handleSubmit}  >
    <Form.Group controlId="formPostcode">
      <Form.Label >Postcode</Form.Label>
-     <Form.Control maxWidth="25%" type="postcode" placeholder="Postcode"onChange={this.handlePostcodeChange} value={this.state.postcode} />
+     <Form.Control  type="postcode" placeholder="Postcode"onChange={this.handlePostcodeChange} value={this.state.postcode} />
      <Form.Text >
        Only English and Welsh postcodes
      </Form.Text>
@@ -134,10 +144,12 @@ render(){
      Submit
    </Button>
  </Form>
+</div>
 
  <MapComponent crimes={this.state.crimes} postcodeData={this.state.postcode_data}/>
 
 
+</div>
 </div>
   )
 }

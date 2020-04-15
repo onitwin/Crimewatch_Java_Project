@@ -96,12 +96,9 @@ const MapComponent =(props)=>{
 
 
 
-
-
-
   const position = [props.postcodeData.latitude,props.postcodeData.longitude]
 
-  debugger;
+
   const leafletMarkers=props.crimes.map((crime)=>(
     <Marker className={crime.category} key={`crime_${crime.id}`}position={[(crime.location.latitude),(crime.location.longitude)]}
     draggable="true" icon={icons[crime.category]}>

@@ -66,6 +66,9 @@ code {
 
 }
 
+.container{
+  display: flex;
+}
 .card-deck{
     margin: 10px;
 }
@@ -108,5 +111,15 @@ span.input-group-addon {
 }
 
 .form-control {
-  width: 50% !important;
+  width: 100% !important;
+}
+
+.SafetyTipListItem-img {
+  height: auto;
+  max-height: 250px;
+  width: auto;
+  max-width: 800px;
+  display: flex;
+  align-self: center;
+
 }
