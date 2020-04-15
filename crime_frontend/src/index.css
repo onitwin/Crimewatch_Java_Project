@@ -105,3 +105,19 @@ span.input-group-addon {
 .form-control {
   width: 25% !important;
 }
+
+.RoUK_Crime_Data {
+  background-color: white;
+  color: black;
+  font-family: 'Inconsolata';
+}
+
+.newCrimes_ul{
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 0.875rem;
+  text-align:justify;
+  list-style-type: none;
+  min-width: 600px;
+  max-width: 797px;
+  box-sizing: border-box;
+}
